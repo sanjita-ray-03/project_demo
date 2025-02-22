@@ -1,5 +1,4 @@
-
-
+/* Sign In */
 .gradient-custom-2 {
     /* fallback for old browsers */
     background: #fccb90;
@@ -22,4 +21,29 @@
     border-top-right-radius: .3rem;
     border-bottom-right-radius: .3rem;
     }
+    }
+/* Sign Up */
+
+    input[type=text]{
+        outline: none;
+    }
+    input[type=text]:focus{
+        border-color: #d8363a;
+        box-shadow: 0px 1px 7px 1px #ed575a;
+    }
+    
+    input[type=email]{
+        outline: none;
+    }
+    input[type=email]:focus{
+        border-color: #d8363a;
+        box-shadow: 0px 1px 7px 1px #ed575a;
+    }
+    
+    input[type=password]{
+        outline: none;
+    }
+    input[type=password]:focus{
+        border-color: #d8363a;
+        box-shadow: 0px 1px 7px 1px #ed575a;
     }
