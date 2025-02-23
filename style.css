@@ -84,6 +84,7 @@
         position: absolute;
         width: 100%;
         filter: brightness(0.4);
+        height: 100%;
     }
 
     .sup-img-2-con{
