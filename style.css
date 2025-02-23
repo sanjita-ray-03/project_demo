@@ -55,7 +55,24 @@
         border-color: #d8363a;
         box-shadow: 0px 1px 7px 1px #ed575a;
     }
-       /* sign-in */
+    
+    input[type=tel]{
+        outline: none;
+    }
+    input[type=tel]:focus{
+        border-color: #d8363a;
+        box-shadow: 0px 1px 7px 1px #ed575a;
+    }
+
+    input[type=date]{
+        outline: none;
+    }
+    input[type=date]:focus{
+        border-color: #d8363a;
+        box-shadow: 0px 1px 7px 1px #ed575a;
+    }
+
+/* sign-in */
        .sup-img-con{
         overflow: hidden !important;
         position: relative;
@@ -78,3 +95,35 @@
     .sup-img-2{
         position: absolute !important;
     }
+
+
+/* Check Out */
+
+.container {
+    max-width: 960px;
+  }
+  
+.lh-condensed { 
+    line-height: 1.25; 
+}
+
+input[type=checkbox]{
+    outline: none;
+    accent-color: #ed575a;
+}
+
+input[type=radio]{
+    outline: none;
+    accent-color: #ed575a;
+}
+
+select{
+    border-color: #bebebe;
+}
+select:focus{
+    border-color: #d8363a;
+}
+
+select>option{
+    background-color: #ee7724;
+}
