@@ -83,7 +83,7 @@
     .sup-img-con .sup-img{
         position: absolute;
         width: 100%;
-        filter: brightness(0.5);
+        filter: brightness(0.4);
     }
 
     .sup-img-2-con{
