@@ -1,0 +1,27 @@
+
+.navbar-brand{
+    padding-right: 4rem;
+    padding-bottom: 1.2rem;
+}
+.navdiv{
+    height: 4.5rem;
+    background-color:white;
+    border-bottom: 1px solid #123524;
+}
+.navbar{
+    padding: 0;
+}
+.search{
+    margin-right: 3rem;
+}
+
+.btn:hover{
+    background-color: #3d7b27a0;
+}
+
+.footer{
+    background-color: #123524;
+}
+.row{
+    border-bottom: 1px solid white;
+}
