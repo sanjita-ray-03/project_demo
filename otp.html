@@ -26,7 +26,13 @@
                   <!-- Email input -->
                   <div data-mdb-input-init class="form-outline mb-4">
                     <label class="form-label" for="otp">Enter OTP</label>
-                    <input type="tel" id="otp" class="form-control" placeholder="-----" />
+                    <div class="row d-flex mb-5" style="gap:10px; justify-content:center;">
+                      <input class="form-control form-control-lg" name="first" style="width: 3rem;" type="number"  aria-label=".form-control-lg example">
+                      <input class="form-control form-control-lg" name="sec" style="width: 3rem;" type="number"  aria-label=".form-control-lg example">
+                      <input class="form-control form-control-lg" name="third" style="width: 3rem;" type="number"  aria-label=".form-control-lg example">
+                      <input class="form-control form-control-lg" name="fourth" style="width: 3rem;" type="number"  aria-label=".form-control-lg example">
+                      <input class="form-control form-control-lg" name="fifth" style="width: 3rem;" type="number"  aria-label=".form-control-lg example">
+                  </div>
                   </div>
                   <!-- Submit button -->
                   <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-danger mb-4">
@@ -40,6 +46,7 @@
                 <i class="fas fa-check"></i>
                 <p>Congratulations User! Your OTP is Verified!</p>
             </div>
+            <br>
             </div>
           </div>
         </div>
