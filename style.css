@@ -430,3 +430,39 @@ select:focus{
     .success-message p {
         margin: 10px 0;
     }
+
+/* Product Details */
+
+.product-image {
+    max-height: 400px;
+    object-fit: cover;
+}
+.thumbnail {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+.thumbnail:hover, .thumbnail.active {
+    opacity: 1;
+}
+
+.button{
+    background-color: white; 
+    color: #62a32f; 
+}
+
+.button:hover{
+    background-color: #61a12e;
+    color: rgb(245, 245, 245);
+}
+
+.feature{
+    list-style-type: none;
+}
+
+.feature:hover{
+    color: #62a32f;
+}
