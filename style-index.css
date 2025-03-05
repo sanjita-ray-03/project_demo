@@ -4,12 +4,11 @@
 }
 .navbar-brand img{
     width: 150px;
-    margin-top: 4px;
+    margin-top: 0px;
 }
 .navdiv{
     height: 4.5rem;
     background-color:white;
-    border-bottom: 1px solid #123524;
 }
 .navbar{
     padding: 0;
@@ -33,23 +32,29 @@
 .back-g{
     position: relative !important;
     overflow: hidden !important;
-    height: 600px !important;
+
 }
 .carousel-item{
     width: 100%;
-    height: 600px;
+    overflow: hidden;
+    flex-wrap: nowrap;
 }
-img{
-    position: absolute !important;
-    top: 0px;
-    z-index: 0;
+.carousel-item .imgSlide{
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+}
+
+    
     /* filter: brightness(0.3); */
-}
+
 .text{
     position: relative;
     z-index: 10;
-    width: 30rem;
-    top: 120px;
+    width: 40%;
+    top: 60px;
     left: 100px;
     
 }

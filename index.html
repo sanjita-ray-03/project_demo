@@ -9,138 +9,178 @@
     <link rel="stylesheet" href="style-index.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="../../assets/vendor/aos/dist/aos.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
+  
     <!-- Navigation Bar -->
-    <div class="container-fluid">
-      <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
-          <div class="container-fluid navdiv">
-            <a class="navbar-brand" href="#"><img src="img/logo.png" alt="Bootstrap">
-          </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">New Products</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Featured Products</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Blog</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Pages
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Account</a></li>
-                    <li><a class="dropdown-item" href="#">About Us</a></li>
-                    <li><a class="dropdown-item" href="#">Check Out</a></li>
-                    <li><a class="dropdown-item" href="#">Bill Slip</a></li>
-                    <li><a class="dropdown-item" href="#">Sign in</a></li>
-                    <li><a class="dropdown-item" href="#">Sign Up</a></li>
-                    <li><a class="dropdown-item" href="#">Forgot Password</a></li>
-                    <li><a class="dropdown-item" href="#">Log Out</a></li>
-                    
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Contact Us</a>
-                </li>
-              </ul>
-              <form class="d-flex search" role="search">
-                <input class="form-control me-4" type="search" placeholder="Search Item" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
+    
+
+        <nav class="navbar navbar-expand-lg bg-body-tertiary shadow">
+            <div class="container-fluid navdiv" style="max-width: 2000px;">
+              <a class="navbar-brand" href="#" style="padding: 0rem 0rem 1.2rem 0rem;"><img src="img/logo.png" alt="Bootstrap">
+            </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">New Products</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Featured Products</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Blog</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Pages
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Account</a></li>
+                      <li><a class="dropdown-item" href="#">About Us</a></li>
+                      <li><a class="dropdown-item" href="#">Check Out</a></li>
+                      <li><a class="dropdown-item" href="#">Bill Slip</a></li>
+                      <li><a class="dropdown-item" href="#">Sign in</a></li>
+                      <li><a class="dropdown-item" href="#">Sign Up</a></li>
+                      <li><a class="dropdown-item" href="#">Forgot Password</a></li>
+                      <li><a class="dropdown-item" href="#">Log Out</a></li>
+                      
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Contact Us</a>
+                  </li>
+                </ul>
+                <form class="d-flex search" role="search">
+                  <input class="form-control me-4" type="search" placeholder="Search Item" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+              </div>
             </div>
-          </div>
-        </nav>
-  </div>
-    </header>
+          </nav>
+      
+  
 
     <!-- Banner Slider -->
-    <div class="container-fluid">
-      <div class="col-lg-12 col-md-12 pt-3 back-g">
+    <div class="container-fluid" style="max-width:2000px; height:fit-content;">
+      <div class="col-lg-12 col-md-12 back-g">
 
         <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class=" text">
+          <div class="carousel-inner" style="height: fit-content; overflow:hidden;">
+            <div class="carousel-item active" style="background: rgb(214,250,126);
+background: linear-gradient(88deg, rgb(225 255 150) 0%, rgb(248 255 215) 35%, rgba(252, 252, 252, 1) 100%); ">
+              <div class="row px-3 overflow-hidden flex-nowrap">
+              <div class="col-lg-6 text w-40"  data-aos="fade-right"
+              data-aos-offset="300"
+              data-aos-easing="ease-in-sine" data-aos-duration="500">
                 <h1 style="color: rgb(27, 27, 27); text-transform:uppercase;">Shop till You Drop</h1>
                 <div class="line" style="width: 450px; height:3px; margin:3px; background-color:#dc3545"></div>
                   <div class="line-black" style="width: 400px; height:3px; margin:3px; background-color:#2b2a2a"></div>
                 <p style="color: #4a4849; font-size:1.3rem; margin-top:1.3rem;">Don't wait! Just Go for it</p>
                 <a href="#" class="btn btn-primary px-3" style="background-color: #dc3545; border:none; border-radius:0px;">Shop Now</a>
               </div>
- 
-            <img src="img/slide-1.png" class="d-block w-100" alt="...">
+              <div class="imgSlide col-lg-6 mt-5" data-aos="zoom-in-up" data-aos-duration="500">
+                <img src="img/brocoli-bgremove.png" class="d-block w-75" alt="..." style="filter:drop-shadow(2px 4px 6px #7b7b7b);">
+              </div>
             </div>
-            <div class="carousel-item">
-              <div class=" text">
+            </div>
+
+            <div class="carousel-item" style="background: rgb(214,250,126);
+background: linear-gradient(88deg, rgb(243 223 68) 0%, rgb(255 254 192) 35%, rgba(252, 252, 252, 1) 100%) ">
+              <div class="row px-3 overflow-hidden flex-nowrap">
+              <div class="col-lg-6 text w-40"  data-aos="fade-right"
+              data-aos-offset="300"
+              data-aos-easing="ease-in-sine"  data-aos-duration="500">
                 <h1 style="color: rgb(27, 27, 27); text-transform:uppercase;">Shop till You Drop</h1>
                 <div class="line" style="width: 450px; height:3px; margin:3px; background-color:#dc3545"></div>
                   <div class="line-black" style="width: 400px; height:3px; margin:3px; background-color:#2b2a2a"></div>
                 <p style="color: #4a4849; font-size:1.3rem; margin-top:1.3rem;">Don't wait! Just Go for it</p>
                 <a href="#" class="btn btn-primary px-3" style="background-color: #dc3545; border:none; border-radius:0px;">Shop Now</a>
               </div>
-         
-              <img src="img/slide-2.png" class="d-block w-100" alt="...">
-
-            </div>
-            <div class="carousel-item">
-              <div class=" text">
-                <h1 style="color: rgb(27, 27, 27); text-transform:uppercase;">Shop till You Drop</h1>
-                <div class="line" style="width: 450px; height:3px; margin:3px; background-color:#dc3545"></div>
-                  <div class="line-black" style="width: 400px; height:3px; margin:3px; background-color:#2b2a2a"></div>
-                <p style="color: #4a4849; font-size:1.3rem; margin-top:1.3rem;">Don't wait! Just Go for it</p>
-                <a href="#" class="btn btn-primary px-3" style="background-color: #dc3545; border:none; border-radius:0px;">Shop Now</a>
+              <div class="imgSlide col-lg-6 " data-aos="zoom-in-up"  data-aos-duration="500">
+                <img src="img/banana.png" class="d-block w-75 mt-5" alt="..." style="filter:drop-shadow(2px 4px 6px #7b7b7b);">
               </div>
-           
-              <img src="img/slide-3.png" class="d-block w-100" alt="...">
             </div>
+            </div>
+             
+            <div class="carousel-item" style="background: rgb(214,250,126);
+            background: linear-gradient(88deg, rgb(255 211 157) 0%, rgb(255 245 215) 35%, rgba(252, 252, 252, 1) 100%); ">
+                          <div class="row px-3 overflow-hidden flex-nowrap">
+                          <div class="col-lg-6 text w-40"  data-aos="fade-right"
+                          data-aos-offset="300"
+                          data-aos-easing="ease-in-sine"  data-aos-duration="500">
+                            <h1 style="color: rgb(27, 27, 27); text-transform:uppercase;">Shop till You Drop</h1>
+                            <div class="line" style="width: 450px; height:3px; margin:3px; background-color:#dc3545"></div>
+                              <div class="line-black" style="width: 400px; height:3px; margin:3px; background-color:#2b2a2a"></div>
+                            <p style="color: #4a4849; font-size:1.3rem; margin-top:1.3rem;">Don't wait! Just Go for it</p>
+                            <a href="#" class="btn btn-primary px-3" style="background-color: #dc3545; border:none; border-radius:0px;">Shop Now</a>
+                          </div>
+                          <div class="imgSlide col-lg-6 " data-aos="zoom-in-up" data-aos-duration="500">
+                            <img src="img/rice.png" class="d-block w-75 mt-5" alt="..." style="filter:drop-shadow(2px 4px 6px #7b7b7b);">
+                          </div>
+                        </div>
+                        </div>
 
-            <div class="carousel-item">
-              <div class=" text" style="float: right; left:0px">
-                <h1 style="color: rgb(27, 27, 27); text-transform:uppercase; text-align:justify;">Shop till You Drop</h1>
-                <div class="line" style="width: 450px; height:3px; margin:3px; background-color:#dc3545"></div>
-                  <div class="line-black" style="width: 400px; height:3px; margin:3px; background-color:#2b2a2a"></div>
-                <p style="color: #4a4849; font-size:1.3rem; margin-top:1.3rem;">Don't wait! Just Go for it</p>
-                <a href="#" class="btn btn-primary px-3" style="background-color: #dc3545; border:none; border-radius:0px;">Shop Now</a>
-              </div>
-           
-              <img src="img/slide-4.png" class="d-block w-100" alt="...">
-            </div>
+                        <div class="carousel-item" style="background: rgb(214,250,126);
+                        background: linear-gradient(88deg, rgb(225 255 150) 0%, rgb(248 255 215) 35%, rgba(252, 252, 252, 1) 100%); ">
+                                      <div class="row px-3 overflow-hidden flex-nowrap">
+                                      <div class="col-lg-6 text w-40"  data-aos="fade-right"
+                                      data-aos-offset="300"
+                                      data-aos-easing="ease-in-sine"  data-aos-duration="500">
+                                        <h1 style="color: rgb(27, 27, 27); text-transform:uppercase;">Shop till You Drop</h1>
+                                        <div class="line" style="width: 450px; height:3px; margin:3px; background-color:#dc3545"></div>
+                                          <div class="line-black" style="width: 400px; height:3px; margin:3px; background-color:#2b2a2a"></div>
+                                        <p style="color: #4a4849; font-size:1.3rem; margin-top:1.3rem;">Don't wait! Just Go for it</p>
+                                        <a href="#" class="btn btn-primary px-3" style="background-color: #dc3545; border:none; border-radius:0px;">Shop Now</a>
+                                      </div>
+                                      <div class="imgSlide col-lg-6 " data-aos="zoom-in-up" data-aos-duration="500">
+                                        <img src="img/veggieBasket.png" class="d-block w-75 mt-5" alt="..." style="filter:drop-shadow(2px 4px 6px #7b7b7b);">
+                                      </div>
+                                    </div>
+                                    </div>
 
-            <div class="carousel-item">
-              <div class=" text">
-                <h1 style="color: rgb(237, 237, 237); text-transform:uppercase;">Shop till You Drop</h1>
-                <div class="line" style="width: 450px; height:3px; margin:3px; background-color:#67a617"></div>
-                  <div class="line-black" style="width: 400px; height:3px; margin:3px; background-color:#b9b9b9"></div>
-                <p style="color: #bbbbbb; font-size:1.3rem; margin-top:1.3rem;">Don't wait! Just Go for it</p>
-                <a href="#" class="btn btn-primary px-3" style="background-color: #67a617; border:none; border-radius:0px;">Shop Now</a>
-              </div>
-           
-              <img src="img/slide-5.png" class="d-block w-100" alt="...">
-            </div>
 
-            <div class="carousel-item">
-              <div class=" text">
-                <h1 style="color: rgb(27, 27, 27); text-transform:uppercase;">Shop till You Drop</h1>
-                <div class="line" style="width: 450px; height:3px; margin:3px; background-color:#dc3545"></div>
-                  <div class="line-black" style="width: 400px; height:3px; margin:3px; background-color:#2b2a2a"></div>
-                <p style="color: #4a4849; font-size:1.3rem; margin-top:1.3rem;">Don't wait! Just Go for it</p>
-                <a href="#" class="btn btn-primary px-3" style="background-color: #dc3545; border:none; border-radius:0px;">Shop Now</a>
-              </div>
-           
-              <img src="img/slide-6.png" class="d-block w-100" alt="...">
-            </div>
+                                    <div class="carousel-item" style="background: rgb(214,250,126);
+                                    background: linear-gradient(88deg, rgb(255 129 129) 0%, rgb(251 210 210) 35%, rgba(252, 252, 252, 1) 100%); ">
+                                                  <div class="row px-3 overflow-hidden flex-nowrap">
+                                                  <div class="col-lg-6 text w-40"  data-aos="fade-right"
+                                                  data-aos-offset="300"
+                                                  data-aos-easing="ease-in-sine"  data-aos-duration="500">
+                                                    <h1 style="color: rgb(27, 27, 27); text-transform:uppercase;">Shop till You Drop</h1>
+                                                    <div class="line" style="width: 450px; height:3px; margin:3px; background-color:#dc3545"></div>
+                                                      <div class="line-black" style="width: 400px; height:3px; margin:3px; background-color:#2b2a2a"></div>
+                                                    <p style="color: #4a4849; font-size:1.3rem; margin-top:1.3rem;">Don't wait! Just Go for it</p>
+                                                    <a href="#" class="btn btn-primary px-3" style="background-color: #dc3545; border:none; border-radius:0px;">Shop Now</a>
+                                                  </div>
+                                                  <div class="imgSlide col-lg-6 " data-aos="zoom-in-up" data-aos-duration="500">
+                                                    <img src="img/watermellon.png" class="d-block w-75 mt-5" alt="..." style="filter:drop-shadow(2px 4px 6px #7b7b7b);">
+                                                  </div>
+                                                </div>
+                                                </div>
+                                                <div class="carousel-item" style="background: rgb(214,250,126);
+                                                background: linear-gradient(88deg, rgb(225 255 150) 0%, rgb(248 255 215) 35%, rgba(252, 252, 252, 1) 100%); ">
+                                                              <div class="row px-3 overflow-hidden flex-nowrap">
+                                                              <div class="col-lg-6 text w-40"  data-aos="fade-right"
+                                                              data-aos-offset="300"
+                                                              data-aos-easing="ease-in-sine"  data-aos-duration="500">
+                                                                <h1 style="color: rgb(27, 27, 27); text-transform:uppercase;">Shop till You Drop</h1>
+                                                                <div class="line" style="width: 450px; height:3px; margin:3px; background-color:#dc3545"></div>
+                                                                  <div class="line-black" style="width: 400px; height:3px; margin:3px; background-color:#2b2a2a"></div>
+                                                                <p style="color: #4a4849; font-size:1.3rem; margin-top:1.3rem;">Don't wait! Just Go for it</p>
+                                                                <a href="#" class="btn btn-primary px-3" style="background-color: #dc3545; border:none; border-radius:0px;">Shop Now</a>
+                                                              </div>
+                                                              <div class="imgSlide col-lg-6 " data-aos="zoom-in-up" data-aos-duration="500">
+                                                                <img src="img/masala.png" class="d-block w-75 mt-5" alt="..." style="filter:drop-shadow(2px 4px 6px #7b7b7b);">
+                                                              </div>
+                                                            </div>
+                                                            </div>
+
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: #67a617;"></span>
@@ -152,10 +192,10 @@
           </button>
         </div>
       </div>
-  </div>
+  </div> 
 
     <!-- Product Sections -->
-    <div class="container my-5">
+    <!-- <div class="container my-5">
         <h2 class="text-center">Top Featured Products</h2>
         <div class="row">
             <div class="col-md-3">
@@ -186,10 +226,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- Footer -->
-    <footer class="text-white py-4 footer">
+    <!-- <footer class="text-white py-4 footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-3"><h5>Categories</h5><ul><li>Vegetables</li><li>Fruits</li></ul></div>
@@ -199,7 +239,10 @@
             </div>
             <p class="text-center mt-3">&copy; 2025 Supermarket. All rights reserved.</p>
         </div>
-    </footer>
-    <script src="../../assets/vendor/aos/dist/aos.js"></script>
+    </footer> -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
 </body>
 </html>
