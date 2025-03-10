@@ -385,6 +385,8 @@ select:focus{
         border-color: #d8363a;
         box-shadow: 0px 1px 7px 1px #ed575a;
     }
+
+
 /* OTP */
     .success-message {
         /* display: none; */
@@ -398,6 +400,8 @@ select:focus{
     .success-message p {
         margin: 10px 0;
     }
+
+
 
 /* Product Details */
 
@@ -434,6 +438,8 @@ select:focus{
 .feature:hover{
     color: #62a32f;
 }
+
+
 
 /* item page style */
 
