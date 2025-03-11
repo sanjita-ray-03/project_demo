@@ -633,3 +633,9 @@ body{
 .num{
     padding-left: 5px;
 }
+
+/* sign-up-option */
+
+.card-body a{
+    text-decoration: none;
+}
