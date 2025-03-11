@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style-index.css">
+    <!-- <link rel="stylesheet" href="	https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"> -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
@@ -194,39 +196,294 @@ background: linear-gradient(88deg, rgb(243 223 68) 0%, rgb(255 254 192) 35%, rgb
       </div>
   </div> 
 
-    <!-- Product Sections -->
-    <!-- <div class="container my-5">
-        <h2 class="text-center">Top Featured Products</h2>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="card">
-                    <img src="img/product1.png" class="card-img-top" alt="Product 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Brocolli</h5>
-                        <p class="card-text">$19.99</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <img src="img/product2.png" class="card-img-top" alt="Product 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Onion</h5>
-                        <p class="card-text">$24.99</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <img src="img/product3.png" class="card-img-top" alt="Product 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Carrot</h5>
-                        <p class="card-text">$20.99</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
+<!-- Product Sections -->
+<section class="pt-5 pb-5">
+  <div class="container">
+      <div class="row">
+          <div class="col-6">
+              <h3 class="mb-3" style="color: #dc3545;">Products </h3>
+          </div>
+          <div class="col-6 text-right ">
+              <a class="btn btn-outline-danger mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                  <i class="fa fa-arrow-left"></i>
+              </a>
+              <a class="btn btn-outline-danger mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
+                  <i class="fa fa-arrow-right"></i>
+              </a>
+          </div>
+          <div class="col-12">
+              <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+
+                  <div class="carousel-inner">
+                      <div class="carousel-item active">
+                          <div class="row">
+
+                              <div class="col-md-4 mb-3">
+                                  <div class="card">
+                                      <img class="img-fluid" alt="100%x280" src="img/banana.png">
+                                      <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                          <p class="small"><a href="#!" class="text-muted">Laptops</a></p>
+                                          <p class="small text-danger"><s>$1099</s></p>
+                                        </div>
+                            
+                                        <div class="d-flex justify-content-between mb-3">
+                                          <h5 class="mb-0">HP Notebook</h5>
+                                          <h5 class="text-dark mb-0">$999</h5>
+                                        </div>
+                            
+                                        <div class="d-flex justify-content-between mb-2">
+                                          <p class="text-muted mb-0">Available: <span class="fw-bold">6</span></p>
+                                          <div class="ms-auto text-warning">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                  </div>
+                              </div>
+                              <div class="col-md-4 mb-3">
+                                  <div class="card">
+                                      <img class="img-fluid" alt="100%x280" src="img/brocoli-bgremove.png">
+                                      <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                          <p class="small"><a href="#!" class="text-muted">Laptops</a></p>
+                                          <p class="small text-danger"><s>$1099</s></p>
+                                        </div>
+
+                                        <div class="d-flex justify-content-between mb-3">
+                                          <h5 class="mb-0">HP Notebook</h5>
+                                          <h5 class="text-dark mb-0">$999</h5>
+                                        </div>
+
+                                        <div class="d-flex justify-content-between mb-2">
+                                          <p class="text-muted mb-0">Available: <span class="fw-bold">6</span></p>
+                                          <div class="ms-auto text-warning">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                          </div>
+                                        </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-md-4 mb-3">
+                                  <div class="card">
+                                      <img class="img-fluid" alt="100%x280" src="img/masala.png">
+                                      <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                          <p class="small"><a href="#!" class="text-muted">Laptops</a></p>
+                                          <p class="small text-danger"><s>$1099</s></p>
+                                        </div>
+
+                                        <div class="d-flex justify-content-between mb-3">
+                                          <h5 class="mb-0">HP Notebook</h5>
+                                          <h5 class="text-dark mb-0">$999</h5>
+                                        </div>
+
+                                        <div class="d-flex justify-content-between mb-2">
+                                          <p class="text-muted mb-0">Available: <span class="fw-bold">6</span></p>
+                                          <div class="ms-auto text-warning">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                          </div>
+                                        </div>
+                                      </div>
+                                  </div>
+                              </div>
+
+                          </div>
+                      </div>
+                      <div class="carousel-item">
+                          <div class="row">
+
+                              <div class="col-md-4 mb-3">
+                                  <div class="card">
+                                      <img class="img-fluid" alt="100%x280" src="img/rice.png">
+                                      <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                          <p class="small"><a href="#!" class="text-muted">Laptops</a></p>
+                                          <p class="small text-danger"><s>$1099</s></p>
+                                        </div>
+
+                                        <div class="d-flex justify-content-between mb-3">
+                                          <h5 class="mb-0">HP Notebook</h5>
+                                          <h5 class="text-dark mb-0">$999</h5>
+                                        </div>
+
+                                        <div class="d-flex justify-content-between mb-2">
+                                          <p class="text-muted mb-0">Available: <span class="fw-bold">6</span></p>
+                                          <div class="ms-auto text-warning">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                  </div>
+                              </div>
+                              <div class="col-md-4 mb-3">
+                                  <div class="card">
+                                      <img class="img-fluid" alt="100%x280" src="img/banana.png">
+                                      <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                          <p class="small"><a href="#!" class="text-muted">Laptops</a></p>
+                                          <p class="small text-danger"><s>$1099</s></p>
+                                        </div>
+
+                                        <div class="d-flex justify-content-between mb-3">
+                                          <h5 class="mb-0">HP Notebook</h5>
+                                          <h5 class="text-dark mb-0">$999</h5>
+                                        </div>
+
+                                        <div class="d-flex justify-content-between mb-2">
+                                          <p class="text-muted mb-0">Available: <span class="fw-bold">6</span></p>
+                                          <div class="ms-auto text-warning">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                          </div>
+                                        </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-md-4 mb-3">
+                                  <div class="card">
+                                      <img class="img-fluid" alt="100%x280" src="img/masala.png">
+                                      <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                          <p class="small"><a href="#!" class="text-muted">Laptops</a></p>
+                                          <p class="small text-danger"><s>$1099</s></p>
+                                        </div>
+
+                                        <div class="d-flex justify-content-between mb-3">
+                                          <h5 class="mb-0">HP Notebook</h5>
+                                          <h5 class="text-dark mb-0">$999</h5>
+                                        </div>
+
+                                        <div class="d-flex justify-content-between mb-2">
+                                          <p class="text-muted mb-0">Available: <span class="fw-bold">6</span></p>
+                                          <div class="ms-auto text-warning">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                          </div>
+                                        </div>
+                                      </div>
+                                  </div>
+                              </div>
+
+                          </div>
+                      </div>
+                      <div class="carousel-item">
+                          <div class="row">
+
+                              <div class="col-md-4 mb-3">
+                                  <div class="card">
+                                      <img class="img-fluid" alt="100%x280" src="img/rice.png">
+                                      <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                          <p class="small"><a href="#!" class="text-muted">Laptops</a></p>
+                                          <p class="small text-danger"><s>$1099</s></p>
+                                        </div>
+
+                                        <div class="d-flex justify-content-between mb-3">
+                                          <h5 class="mb-0">HP Notebook</h5>
+                                          <h5 class="text-dark mb-0">$999</h5>
+                                        </div>
+
+                                        <div class="d-flex justify-content-between mb-2">
+                                          <p class="text-muted mb-0">Available: <span class="fw-bold">6</span></p>
+                                          <div class="ms-auto text-warning">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                  </div>
+                              </div>
+                              <div class="col-md-4 mb-3">
+                                  <div class="card">
+                                      <img class="img-fluid" alt="100%x280" src="img/masala.png">
+                                      <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                          <p class="small"><a href="#!" class="text-muted">Laptops</a></p>
+                                          <p class="small text-danger"><s>$1099</s></p>
+                                        </div>
+
+                                        <div class="d-flex justify-content-between mb-3">
+                                          <h5 class="mb-0">HP Notebook</h5>
+                                          <h5 class="text-dark mb-0">$999</h5>
+                                        </div>
+
+                                        <div class="d-flex justify-content-between mb-2">
+                                          <p class="text-muted mb-0">Available: <span class="fw-bold">6</span></p>
+                                          <div class="ms-auto text-warning">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                          </div>
+                                        </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-md-4 mb-3">
+                                  <div class="card">
+                                    <img class="img-fluid" alt="100%x280" src="img/masala.png">
+                                      <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                          <p class="small"><a href="#!" class="text-muted">Laptops</a></p>
+                                          <p class="small text-danger"><s>$1099</s></p>
+                                        </div>
+
+                                        <div class="d-flex justify-content-between mb-3">
+                                          <h5 class="mb-0">HP Notebook</h5>
+                                          <h5 class="text-dark mb-0">$999</h5>
+                                        </div>
+
+                                        <div class="d-flex justify-content-between mb-2">
+                                          <p class="text-muted mb-0">Available: <span class="fw-bold">6</span></p>
+                                          <div class="ms-auto text-warning">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                          </div>
+                                        </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
 
     <!-- Footer -->
     <footer class="text-white py-4 footer">
@@ -244,5 +501,6 @@ background: linear-gradient(88deg, rgb(243 223 68) 0%, rgb(255 254 192) 35%, rgb
     <script>
       AOS.init();
     </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
 </body>
 </html>
