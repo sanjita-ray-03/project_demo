@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supplier Registration Form</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+    <div class="container mt-5 mb-5">
+        <div class="card shadow">
+            <div class="card-header" style="background-color: #d8363a; color: #fff;">
+                <h3 class="mb-0">Supplier Registration Form</h3>
+            </div>
+            <div class="card-body">
+                <form class="needs-validation" novalidate>
+                    <div class="row g-3">
+                        <!-- Company Information -->
+                        <div class="col-md-6">
+                            <label for="companyName" class="form-label">Company Name <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="companyName" required>
+                            <div class="invalid-feedback">
+                                Please enter company name.
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="contactPerson" class="form-label">Contact Person <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="contactPerson" required>
+                            <div class="invalid-feedback">
+                                Please enter contact person name.
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                            <input type="email" class="form-control" id="email" required>
+                            <div class="invalid-feedback">
+                                Please enter a valid email address.
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="phone" class="form-label">Phone Number <span class="text-danger">*</span></label>
+                            <input type="tel" class="form-control" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                            <div class="invalid-feedback">
+                                Please enter a valid phone number (format: 123-456-7890).
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="address" class="form-label">Address <span class="text-danger">*</span></label>
+                            <textarea type="text" class="form-control" id="address" rows="3" required></textarea>
+                            <div class="invalid-feedback">
+                                Please enter company address.
+                            </div>
+                        </div>
+
+                        <!-- Product Categories -->
+                        <div class="col-md-6">
+                            <label for="productCategories" class="form-label">Product Categories <span class="text-danger">*</span></label>
+                            <select class="form-select" id="productCategories" multiple required>
+                                <option value="electronics">Grocerry</option>
+                                <option value="apparel">Vegitables</option>
+                                <option value="home-goods">Fruits</option>
+                                <option value="office-supplies">Dairy</option>
+                                <option value="office-supplies">Eggs</option>
+                                <option value="machinery">Frozen</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select at least one product category.
+                            </div>
+                        </div>
+
+                        <!-- Optional Fields -->
+                        <div class="col-md-6">
+                            <label for="website" class="form-label">Quantity of the Product</label>
+                            <input type="tel" class="form-control" id="website">
+                        </div>
+
+                        <div class="col-12">
+                            <label for="additionalInfo" class="form-label">Additional Information</label>
+                            <textarea class="form-control" id="additionalInfo" rows="3" type="text"></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="col-12">
+                            <button data-mdb-button-init data-mdb-ripple-init class="btn btn-light btn-block fa-lg gradient-custom-2 mb-3" type="button">Submit Form</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Validation -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Form validation
+        (() => {
+            'use strict'
+
+            // Fetch the form to apply custom Bootstrap validation styles to
+            const forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+    </script>
+</body>
+</html>
