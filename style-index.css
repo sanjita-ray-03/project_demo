@@ -204,3 +204,10 @@
 .below-footer a{
     margin-right: 2rem;
 }
+
+.row{
+    border-bottom: none;
+}
+.line{
+    color: #fff;
+}
