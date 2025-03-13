@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload Form</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        .image-preview {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border: 2px dashed #ddd;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        .image-preview img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .remove-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #dc3545;
+            color: white;
+            border: none;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+        .remove-btn:hover {
+            opacity: 1;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Upload Image</h2>
+    
+    <form id="uploadForm" enctype="multipart/form-data">
+        <!-- File Input -->
+        <div class="mb-3">
+            <label for="imageUpload" class="form-label">Choose Image</label>
+            <input class="form-control" type="file" id="imageUpload" accept="image/*" required>
+        </div>
+
+        <!-- Image Preview with Remove Button -->
+        <div class="image-preview">
+            <button type="button" class="remove-btn" id="removeBtn" onclick="removeImage()">×</button>
+            <img id="previewImage" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Preview">
+        </div>
+
+        <!-- Upload Button -->
+        <button type="submit" class="btn btn-primary">Upload Image</button>
+    </form>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom JavaScript -->
+<script>
+    const imageUpload = document.getElementById('imageUpload');
+    const previewImage = document.getElementById('previewImage');
+    const removeBtn = document.getElementById('removeBtn');
+
+    imageUpload.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        
+        if (file) {
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                previewImage.setAttribute('src', e.target.result);
+                removeBtn.style.display = 'flex';
+            }
+            
+            reader.readAsDataURL(file);
+        }
+    });
+
+    function removeImage() {
+        // Clear preview
+        previewImage.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+        // Reset file input
+        imageUpload.value = '';
+        // Hide remove button
+        removeBtn.style.display = 'none';
+    }
+
+    // Handle form submission
+    document.getElementById('uploadForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (!imageUpload.files[0]) {
+            alert('Please select an image first!');
+            return;
+        }
+        // Add your upload logic here
+        alert('Image upload functionality would go here');
+    });
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+<!-- 2nd Method -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag & Drop Image Upload</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .drop-zone {
+            border: 2px dashed #6c757d;
+            border-radius: 10px;
+            min-height: 200px;
+            transition: all 0.3s;
+            background: #f8f9fa;
+        }
+        .drop-zone.dragover {
+            border-color: #0d6efd;
+            background: rgba(13, 110, 253, 0.05);
+        }
+        .thumbnail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-top: 20px;
+        }
+        .thumbnail-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            aspect-ratio: 1;
+        }
+        .thumbnail-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .remove-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 24px;
+            height: 24px;
+            background: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+        .remove-btn:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container py-5">
+    <div class="drop-zone d-flex flex-column align-items-center justify-content-center p-4"
+         id="dropZone">
+        <i class="bi bi-cloud-upload fs-1 text-muted mb-3"></i>
+        <p class="text-muted mb-2">Drag & drop images here</p>
+        <small class="text-muted mb-3">or</small>
+        <button type="button" class="btn btn-primary" id="browseBtn">
+            Browse Files
+        </button>
+        <input type="file" hidden accept="image/*" multiple id="fileInput">
+    </div>
+
+    <div class="thumbnail-grid" id="previewContainer"></div>
+
+    <div class="mt-4">
+        <button class="btn btn-success" id="uploadAllBtn" style="display: none;">
+            Upload All Images
+        </button>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const dropZone = document.getElementById('dropZone');
+    const fileInput = document.getElementById('fileInput');
+    const browseBtn = document.getElementById('browseBtn');
+    const previewContainer = document.getElementById('previewContainer');
+    const uploadAllBtn = document.getElementById('uploadAllBtn');
+
+    // File selection handlers
+    browseBtn.addEventListener('click', () => fileInput.click());
+    dropZone.addEventListener('click', () => fileInput.click());
+
+    // Drag & drop handlers
+    dropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropZone.classList.add('dragover');
+    });
+
+    dropZone.addEventListener('dragleave', () => {
+        dropZone.classList.remove('dragover');
+    });
+
+    dropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('dragover');
+        const files = e.dataTransfer.files;
+        handleFiles(files);
+    });
+
+    // File input change handler
+    fileInput.addEventListener('change', (e) => {
+        handleFiles(e.target.files);
+    });
+
+    // Handle uploaded files
+    function handleFiles(files) {
+        Array.from(files).forEach(file => {
+            if (!file.type.startsWith('image/')) return;
+            
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                createThumbnail(file, e.target.result);
+            };
+            reader.readAsDataURL(file);
+        });
+        uploadAllBtn.style.display = 'block';
+    }
+
+    // Create thumbnail preview
+    function createThumbnail(file, dataUrl) {
+        const card = document.createElement('div');
+        card.className = 'thumbnail-card';
+        
+        const img = document.createElement('img');
+        img.className = 'thumbnail-img';
+        img.src = dataUrl;
+        
+        const removeBtn = document.createElement('button');
+        removeBtn.className = 'remove-btn';
+        removeBtn.innerHTML = '×';
+        removeBtn.onclick = () => card.remove();
+        
+        card.appendChild(img);
+        card.appendChild(removeBtn);
+        previewContainer.appendChild(card);
+    }
+
+    // Upload all images
+    uploadAllBtn.addEventListener('click', async () => {
+        const cards = previewContainer.querySelectorAll('.thumbnail-card');
+        if (cards.length === 0) return;
+        
+        const formData = new FormData();
+        Array.from(fileInput.files).forEach(file => {
+            formData.append('images', file);
+        });
+
+        try {
+            // Replace with your upload endpoint
+            const response = await fetch('/upload', {
+                method: 'POST',
+                body: formData
+            });
+            
+            if (response.ok) {
+                alert('Upload successful!');
+                previewContainer.innerHTML = '';
+                fileInput.value = '';
+                uploadAllBtn.style.display = 'none';
+            }
+        } catch (error) {
+            console.error('Upload error:', error);
+            alert('Upload failed!');
+        }
+    });
+</script>
+
+</body>
+</html>
