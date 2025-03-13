@@ -62,3 +62,70 @@
     font-size: 4rem;
 }
 
+
+/* offer page style  */
+
+.bg-daily-essentials {
+    background-image: 
+    linear-gradient( hsla(0, 3%, 12%, 0.068),50%,black),
+    url('img/best_offers1.jpg');
+    border: none;
+    border-radius: 6px;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    height: 250px;
+    font-size: x-large;
+}
+.bg-get-up-to {
+    background-image: 
+    linear-gradient( hsla(0, 3%, 12%, 0.068),50%,black),
+    url('img/best_offers2.jpg');
+    border: none;
+    border-radius: 6px;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    height: 250px;
+}
+.bg-special-discount {
+    background-image: 
+    linear-gradient( hsla(0, 3%, 12%, 0.068),50%,black),
+    url('img/best_offers3.jpg');
+    border: none;
+    border-radius: 6px;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    height: 250px;
+}
+.bg-cashback {
+    background-image: url('img/best_offers4.jpg');
+    border: none;
+    border-radius: 6px;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    height: 150px;
+}
+.offers-badge{
+    background-color: #ff512f;
+    color: #fff;
+    font-weight: bold;
+    margin-right: 5px;
+}
+.best-values-text{
+    font-weight: bold;
+}
+.shop-now-btn{
+    background-image: linear-gradient(to right, #ff522f9e, #dd24779e);
+    color: #fff;
+    font-weight: bold;
+    width: 10rem;
+}
+.shop-now-btn:hover{
+    background-image: linear-gradient(to right, #DD2476, #ff512f);
+    transition: background-color 2s ease;
+    transform: scale(1.03);
+}
+
