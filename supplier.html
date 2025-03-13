@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Harvest-Supplier Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Existing styles remain the same, add these new styles */
+        .vegetable-img {
+            height: 250px;
+            width: 100%;
+            object-position: center 30%;
+            filter: brightness(0.95);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          }
+          
+          .vegetable-img:hover {
+            filter: brightness(1.05);
+            transform: scale(1.01) ;
+          }
+
+        .card-title i {
+            animation: iconBounce 1s infinite;
+        }
+
+        @keyframes iconBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+          }
+        @keyframes cardEntrance {
+            from {
+              opacity: 0;
+              transform: translateY(50px) rotateX(-30deg);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0) rotateX(0);
+            }
+          }
+          
+          .item-card {
+            animation: cardEntrance 0.6s ease-out;
+            perspective: 1000px;
+          }
+
+        /* Adjust existing animations */
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .progress-bar {
+            transition: width 0.5s ease-in-out;
+        }
+
+        /* Nav Bar */
+
+        .navbar {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+        
+        .dropdown-menu {
+            min-width: 280px;
+            border-radius: 12px;
+            padding: 0.5rem 0;
+        }
+        
+        .dropdown-item {
+            padding: 0.5rem 1.5rem;
+            font-size: 0.9rem;
+            border-radius: 8px;
+            margin: 0 0.5rem;
+        }
+        
+        .dropdown-item:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .dropdown-divider {
+            border-color: rgba(0,0,0,0.1);
+        }
+
+        /* Hide dropdown arrow specifically for profile dropdown */
+        .profile-dropdown .dropdown-toggle::after {
+            display: none !important;
+        }
+
+        /* Optional: Add hover effect to make it clear it's clickable */
+        .profile-dropdown .dropdown-toggle:hover {
+            transform: scale(1.05);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        /* Add these styles */
+        .add-item-card {
+            border: 2px dashed #dee2e6;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            background: rgba(222, 226, 230, 0.1);
+        }
+
+        .add-item-card:hover {
+            border-color: #198754;
+            background: rgba(25, 135, 84, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .add-item-btn {
+            width: 60px;
+            height: 60px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        .add-item-btn:hover {
+            transform: rotate(90deg) scale(1.1);
+            box-shadow: 0 7px 14px rgba(50, 50, 93, 0.2), 0 3px 6px rgba(0, 0, 0, 0.08);
+        }
+
+        .add-item-btn:active {
+            transform: rotate(90deg) scale(0.95);
+        }
+
+        .add-item-inner {
+            transition: transform 0.3s ease;
+        }
+
+        .fa-plus {
+            transition: transform 0.3s ease;
+        }
+        
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <!-- Supplier Profile Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-5 py-2">
+                <div class="container">
+                    <!-- Company Name -->
+                    <a class="navbar-brand fw-bold text-success" href="#">
+                        <i class="fas fa-warehouse me-2"></i>Fresh Vegitable Suppliers
+                    </a>
+
+                    <!-- Profile Section -->
+                    <div class="d-flex align-items-center">
+                        <!-- Profile Image with Dropdown -->
+                        <div class="dropdown profile-dropdown">
+                            <a class="dropdown-toggle no-arrow" href="#" role="button" 
+                            id="profileDropdown" data-bs-toggle="dropdown" 
+                            aria-expanded="false">
+                            <img src="https://api.dicebear.com/7.x/personas/svg?seed=JohnAgrico&backgroundColor=65c888&backgroundType=gradientLinear&clothingColor=4a4a4a" 
+                            class="rounded-circle border" 
+                            alt="Supplier Profile"
+                            style="width: 40px; height: 40px;">
+                         </a>
+
+                            <!-- Profile Dropdown Menu -->
+                            <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm mt-2" 
+                                aria-labelledby="profileDropdown">
+                                <li class="px-3 py-2">
+                                    <div class="d-flex align-items-center">
+                                        <img src="https://images.unsplash.com/photo-1582515073490-39981397c445?ixlib=rb-1.2.1&auto=format&fit=crop&w=40&h=40&q=60&crop=faces" 
+                                            class="rounded-circle me-2" 
+                                            alt="Supplier Profile"
+                                            style="width: 40px; height: 40px; object-fit: cover;">
+                                        <div>
+                                            <h6 class="mb-0">John Agrico</h6>
+                                            <small class="text-muted">Supplier</small>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li><hr class="dropdown-divider mx-3 my-2"></li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fas fa-mobile-alt me-2"></i>+1 (555) 123-4567
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fas fa-envelope me-2"></i>john@freshfarms.com
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fas fa-map-marker-alt me-2"></i>123 Farm Road
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+        <!-- Vegetables Category -->
+        <h2 class="category-header mb-4 p-3 bg-success text-white rounded">
+            <i class="fas fa-carrot me-2"></i>Vegetables Inventory
+        </h2>
+
+        <!-- Inventory Section -->
+        <div class="row g-4">
+            <!-- Potato Card -->
+            <div class="col-md-4">
+                <div class="card item-card h-100">
+                    <img src="img/potato.png" 
+                         class="vegetable-img" 
+                         alt="Potatoes">
+                    <div class="card-body">
+                        <h4 class="card-title text-primary"><i class="fas fa-potato me-2"></i>Potatoes</h4>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="badge bg-success">In Stock</span>
+                            <h5 class="mb-0" id="potato-stock">1500 kg</h5>
+                        </div>
+                        <div class="progress mb-3">
+                            <div class="progress-bar bg-warning" 
+                                 role="progressbar" 
+                                 style="width: 75%"
+                                 aria-valuenow="1500" 
+                                 aria-valuemin="0" 
+                                 aria-valuemax="2000">
+                                75%
+                            </div>
+                        </div>
+                        <button class="btn btn-outline-primary w-100 toggle-edit">
+                            <i class="fas fa-edit me-2"></i>Update Stock
+                        </button>
+                    </div>
+                    <div class="edit-form p-3">
+                        <div class="input-group">
+                            <input type="number" class="form-control" 
+                                   placeholder="New quantity (kg)"
+                                   data-target="potato">
+                            <button class="btn btn-success" onclick="updateStock('potato')">
+                                <i class="fas fa-check"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tomato Card -->
+            <div class="col-md-4">
+                <div class="card item-card h-100">
+                    <img src="https://images.unsplash.com/photo-1582284540020-8acbe03f4924?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" 
+                         class="vegetable-img" 
+                         alt="Tomatoes">
+                    <div class="card-body">
+                        <h4 class="card-title text-primary"><i class="fas fa-apple-alt me-2"></i>Tomatoes</h4>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="badge bg-success">In Stock</span>
+                            <h5 class="mb-0" id="tomato-stock">800 kg</h5>
+                        </div>
+                        <div class="progress mb-3">
+                            <div class="progress-bar bg-danger" 
+                                 role="progressbar" 
+                                 style="width: 40%"
+                                 aria-valuenow="800" 
+                                 aria-valuemin="0" 
+                                 aria-valuemax="2000">
+                                40%
+                            </div>
+                        </div>
+                        <button class="btn btn-outline-primary w-100 toggle-edit">
+                            <i class="fas fa-edit me-2"></i>Update Stock
+                        </button>
+                    </div>
+                    <div class="edit-form p-3">
+                        <div class="input-group">
+                            <input type="number" class="form-control" 
+                                   placeholder="New quantity (kg)"
+                                   data-target="tomato">
+                            <button class="btn btn-success" onclick="updateStock('tomato')">
+                                <i class="fas fa-check"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bitter Gourd Card -->
+            <div class="col-md-4">
+                <div class="card item-card h-100">
+                    <img src="https://images.unsplash.com/photo-1591033597328-8dac0a3e4a2f?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" 
+                         class="vegetable-img" 
+                         alt="Bitter Gourd">
+                    <div class="card-body">
+                        <h4 class="card-title text-primary"><i class="fas fa-leaf me-2"></i>Bitter Gourd</h4>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="badge bg-success">In Stock</span>
+                            <h5 class="mb-0" id="gourd-stock">1200 kg</h5>
+                        </div>
+                        <div class="progress mb-3">
+                            <div class="progress-bar bg-info" 
+                                 role="progressbar" 
+                                 style="width: 60%"
+                                 aria-valuenow="1200" 
+                                 aria-valuemin="0" 
+                                 aria-valuemax="2000">
+                                60%
+                            </div>
+                        </div>
+                        <button class="btn btn-outline-primary w-100 toggle-edit">
+                            <i class="fas fa-edit me-2"></i>Update Stock
+                        </button>
+                    </div>
+                    <div class="edit-form p-3">
+                        <div class="input-group">
+                            <input type="number" class="form-control" 
+                                   placeholder="New quantity (kg)"
+                                   data-target="gourd">
+                            <button class="btn btn-success" onclick="updateStock('gourd')">
+                                <i class="fas fa-check"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+
+
+            <!-- Add more Button specifies if the supplier wants to add more item for selling they can add through the supplierform.html -->
+            <div class="col-md-4">
+                <div class="card item-card h-100 add-item-card">
+                    <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                        <button class="btn btn-success rounded-circle p-0 add-item-btn" 
+                                onclick="addNewItem()"
+                                data-bs-toggle="tooltip" 
+                                title="Add new stock item">
+                            <div class="add-item-inner">
+                                <i class="fas fa-plus fa-2x"></i>
+                            </div>
+                        </button>
+                        <h5 class="mt-3 text-muted">Add New Item</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialize progress bars
+        function updateProgressBar(item) {
+            const progressBar = document.querySelector(`#${item}-stock`)
+                .closest('.card-body')
+                .querySelector('.progress-bar');
+            
+            const current = parseInt(progressBar.getAttribute('aria-valuenow'));
+            const max = parseInt(progressBar.getAttribute('aria-valuemax'));
+            const percentage = Math.round((current / max) * 100);
+
+            progressBar.style.width = `${percentage}%`;
+            progressBar.textContent = `${percentage}%`;
+        }
+
+        // Update stock function
+        function updateStock(item) {
+            const input = document.querySelector(`input[data-target="${item}"]`);
+            const stockElement = document.getElementById(`${item}-stock`);
+            const progressBar = stockElement.closest('.card-body')
+                                .querySelector('.progress-bar');
+            
+            const newValue = parseInt(input.value);
+            if (!isNaN(newValue)) {
+                // Update stock display
+                stockElement.textContent = `${newValue} kg`;
+                
+                // Update progress bar
+                const max = parseInt(progressBar.getAttribute('aria-valuemax'));
+                const percentage = Math.round((newValue / max) * 100);
+                
+                progressBar.setAttribute('aria-valuenow', newValue);
+                progressBar.style.width = `${percentage}%`;
+                progressBar.textContent = `${percentage}%`;
+            }
+        }
+
+        // Initialize all progress bars on load
+        document.addEventListener('DOMContentLoaded', () => {
+            updateProgressBar('potato');
+            updateProgressBar('tomato');
+            updateProgressBar('gourd');
+        });
+
+        // Toggle edit form
+        document.querySelectorAll('.toggle-edit').forEach(button => {
+            button.addEventListener('click', function() {
+                const card = this.closest('.card');
+                const form = card.querySelector('.edit-form');
+                form.classList.toggle('active');
+                
+                const isActive = form.classList.contains('active');
+                this.innerHTML = isActive ? 
+                    '<i class="fas fa-times me-2"></i>Close Editor' : 
+                    '<i class="fas fa-edit me-2"></i>Update Stock';
+            });
+        });
+
+        // Add more button js code
+        function addNewItem() {
+            // Your logic to handle new item addition
+            console.log('Add new item clicked!');
+            // You can add your item creation logic here
+        }
+    </script>
+</body>
+</html>
