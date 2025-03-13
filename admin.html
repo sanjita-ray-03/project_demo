@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supermarket Admin Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Add Animate.css CDN in head section -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .sidebar {
+            background: linear-gradient(180deg, #2c3e50, #3498db);
+            min-height: 100vh;
+            transition: all 0.3s;
+        }
+
+        .sidebar .nav-link {
+            color: rgba(255,255,255,.8);
+            padding: 12px 20px;
+            margin: 8px 0;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .sidebar .nav-link:hover {
+            background: rgba(255,255,255,.1);
+            transform: translateX(5px);
+        }
+
+        .main-content {
+            background-color: #f5f6fa;
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .profile-card {
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border: 3px solid #fff;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        .customer-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+    
+        .customer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+        }
+    
+        .new-customers { border-left-color: #3498db; }
+        .regular-customers { border-left-color: #2ecc71; }
+        .seasonal-customers { border-left-color: #f1c40f; }
+        .loyal-customers { border-left-color: #e74c3c; }
+    
+        .animate__delay-1s { animation-delay: 0.2s; }
+        .animate__delay-2s { animation-delay: 0.4s; }
+        .animate__delay-3s { animation-delay: 0.6s; }
+    
+        .customer-card h3 {
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+    
+        .customer-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: currentColor;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-3 col-lg-2 sidebar p-0">
+            <div class="p-4">
+                <h4 class="text-white mb-4">SuperMarket Admin</h4>
+                <nav class="nav flex-column">
+                    <a class="nav-link active" href="#"><i class="fas fa-home me-2"></i> Dashboard</a>
+                    <a class="nav-link" href="#"><i class="fas fa-box me-2"></i> Inventory</a>
+                    <a class="nav-link" href="#"><i class="fas fa-chart-line me-2"></i> Sales</a>
+                    <a class="nav-link" href="#"><i class="fas fa-users me-2"></i> Staff</a>
+                    <a class="nav-link" href="#"><i class="fas fa-cog me-2"></i> Settings</a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-md-9 col-lg-10 main-content p-4">
+            <!-- Header -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h3 class="fw-bold">Dashboard Overview</h3>
+                <div class="text-muted">Today: <span class="text-dark"><?= date('d M Y') ?></span></div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="row g-4 mb-4">
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="card bg-primary text-white">
+                        <div class="card-body">
+                            <h5><i class="fas fa-boxes me-2"></i> Total Stock</h5>
+                            <h2 class="mb-0">15,420</h2>
+                            <small>+12% from last month</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="card bg-success text-white">
+                        <div class="card-body">
+                            <h5><i class="fas fa-chart-line me-2"></i> Monthly Profit</h5>
+                            <h2 class="mb-0">$82,450</h2>
+                            <small>+8.5% from last month</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="card bg-danger text-white">
+                        <div class="card-body">
+                            <h5><i class="fas fa-exclamation-triangle me-2"></i> Loss</h5>
+                            <h2 class="mb-0">$2,150</h2>
+                            <small>-3% from last month</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="card bg-warning text-dark">
+                        <div class="card-body">
+                            <h5><i class="fas fa-cash-register me-2"></i> Today's Sales</h5>
+                            <h2 class="mb-0">$12,540</h2>
+                            <small>+5.2% from yesterday</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!-- Customer Ananlysis -->
+            <div class="row g-4 mb-4">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title mb-4">Customer Analytics</h5>
+                            <div class="row g-4">
+                                <!-- New Customers -->
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="card customer-card new-customers animate__animated animate__fadeInLeft">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center">
+                                                <div class="flex-shrink-0">
+                                                    <i class="fas fa-user-plus fa-2x text-primary"></i>
+                                                </div>
+                                                <div class="flex-grow-1 ms-3">
+                                                    <h6 class="mb-1">New Customers</h6>
+                                                    <h3 class="mb-0">1,240</h3>
+                                                    <span class="text-success small"><i class="fas fa-arrow-up"></i> 24%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                                <!-- Regular Customers -->
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="card customer-card regular-customers animate__animated animate__fadeInLeft animate__delay-1s">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center">
+                                                <div class="flex-shrink-0">
+                                                    <i class="fas fa-users fa-2x text-success"></i>
+                                                </div>
+                                                <div class="flex-grow-1 ms-3">
+                                                    <h6 class="mb-1">Active Customers</h6>
+                                                    <h3 class="mb-0">8,450</h3>
+                                                    <span class="text-success small"><i class="fas fa-arrow-up"></i> 12%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                                <!-- Seasonal Customers -->
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="card customer-card seasonal-customers animate__animated animate__fadeInLeft animate__delay-2s">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center">
+                                                <div class="flex-shrink-0">
+                                                    <i class="fas fa-sun fa-2x text-warning"></i>
+                                                </div>
+                                                <div class="flex-grow-1 ms-3">
+                                                    <h6 class="mb-1">Seasonal</h6>
+                                                    <h3 class="mb-0">2,150</h3>
+                                                    <span class="text-danger small"><i class="fas fa-arrow-down"></i> 8%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                                <!-- Loyal Customers -->
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="card customer-card loyal-customers animate__animated animate__fadeInLeft animate__delay-3s">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center">
+                                                <div class="flex-shrink-0">
+                                                    <i class="fas fa-crown fa-2x text-danger"></i>
+                                                </div>
+                                                <div class="flex-grow-1 ms-3">
+                                                    <h6 class="mb-1">Loyal</h6>
+                                                    <h3 class="mb-0">4,850</h3>
+                                                    <span class="text-success small"><i class="fas fa-arrow-up"></i> 6%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+            <!-- Charts and Profile -->
+            <div class="row g-4">
+                <!-- Charts -->
+                <div class="col-lg-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Sales Trend</h5>
+                            <canvas id="salesChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Section -->
+                <div class="col-lg-4">
+                    <div class="card profile-card">
+                        <div class="card-body text-center">
+                            <img src="https://www.gravatar.com/avatar/d4d4ea7c6a0bdfa3e8b4c14f45c07c3d?s=100&d=identicon" alt="Admin" class="avatar rounded-circle mb-3">
+                            <h4 class="mb-1">John Doe</h4>
+                            <p class="text-muted mb-3">Admin Manager</p>
+                            <div class="list-group">
+                                <div class="list-group-item border-0">
+                                    <i class="fas fa-envelope me-2"></i> john@supermarket.com
+                                </div>
+                                <div class="list-group-item border-0">
+                                    <i class="fas fa-phone me-2"></i> +1 234 567 890
+                                </div>
+                                <div class="list-group-item border-0">
+                                    <i class="fas fa-calendar-alt me-2"></i> Joined: Jan 2020
+                                </div>
+                            </div>
+                            <button class="btn btn-primary mt-3"><i class="fas fa-edit me-2"></i>Edit Profile</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second Chart -->
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Stock Analysis</h5>
+                            <canvas id="stockChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Sales Chart
+    const salesCtx = document.getElementById('salesChart').getContext('2d');
+    new Chart(salesCtx, {
+        type: 'line',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [{
+                label: 'Sales ($)',
+                data: [65000, 59000, 80000, 81000, 56000, 85000],
+                borderColor: '#3498db',
+                tension: 0.4,
+                fill: false
+            }]
+        }
+    });
+
+    // Stock Chart
+    const stockCtx = document.getElementById('stockChart').getContext('2d');
+    new Chart(stockCtx, {
+        type: 'bar',
+        data: {
+            labels: ['Dairy', 'Produce', 'Meat', 'Bakery', 'Frozen'],
+            datasets: [{
+                label: 'Current Stock',
+                data: [1200, 1700, 800, 1500, 900],
+                backgroundColor: ['#2ecc71', '#3498db', '#e74c3c', '#f1c40f', '#9b59b6']
+            }]
+        }
+    });
+</script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
