@@ -24,6 +24,12 @@
       .arrow:hover {
         background-color: #dc3545 !important;
       }
+      .text h1{
+        font-size: 3.5rem;
+      }
+
+     
+
     </style>
 
 </head>
@@ -83,132 +89,146 @@
       
   
 
-    <!-- Banner Slider -->
-    <div class="container-fluid" style="max-width:2000px; height:fit-content; padding:0px;">
-      <div class="col-lg-12 col-md-12 back-g">
+<!-- Banner Slider -->
+<div class="container-fluid" style="max-width:2000px; height:fit-content; padding:0px;">
+  <div class="col-lg-12 col-md-12 back-g">
 
-        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner" style="height: fit-content; overflow:hidden;">
-            <div class="carousel-item active " style="background: rgb(214,250,126);
-background: linear-gradient(88deg, rgb(225 255 150) 0%, rgb(248 255 215) 35%, rgba(252, 252, 252, 1) 100%); ">
-              <div class="row px-3 overflow-hidden flex-nowrap">
-              <div class="col-lg-6 text w-40"  data-aos="zoom-in-left"
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner" style="height: fit-content; overflow:hidden;">
+        <!-- First Slide -->
+        <!-- Type Writter Effect is enable only for First Slide -->
+        <div class="carousel-item active " style="background: rgb(214,250,126); background: linear-gradient(88deg, rgb(225 255 150) 0%, rgb(248 255 215) 35%, rgba(252, 252, 252, 1) 100%); ">
+          <div class="row px-3 overflow-hidden flex-nowrap">
+            <div class="col-lg-6 text w-40" data-aos="zoom-in-left"
               data-aos-offset="300"
               data-aos-easing="ease-in-sine" data-aos-duration="1500">
-                <h1 style="color: rgb(27, 27, 27); text-transform:uppercase;">Shop till You Drop</h1>
-                <div class="line" style="width: 450px; height:3px; margin:3px; background-color:#dc3545"></div>
-                  <div class="line-black" style="width: 400px; height:3px; margin:3px; background-color:#2b2a2a"></div>
-                <p style="color: #4a4849; font-size:1.3rem; margin-top:1.3rem;">Don't wait! Just Go for it</p>
-                <a href="#" class="btn btn-primary px-3" style="background-color: #dc3545; border:none; border-radius:0px;">Shop Now</a>
-              </div>
-              <div class="imgSlide col-lg-6 mt-5" data-aos="zoom-in-up" data-aos-duration="1500">
-                <img src="img/brocoli-bgremove.png" class="d-block w-75" alt="..." style="filter:drop-shadow(2px 4px 6px #7b7b7b);">
-              </div>
+              <h1 id="typewriterHeading" style="color: rgb(27, 27, 27); text-transform:uppercase;"></h1>
+              <div class="line" style="width: 450px; height:3px; margin:3px; background-color:#dc3545"></div>
+              <div class="line-black" style="width: 400px; height:3px; margin:3px; background-color:#2b2a2a"></div>
+              <p id="typewriterParagraph" style="color: #4a4849; font-size:1.3rem; margin-top:1.3rem;"></p>
+              <br><br>
+              <a href="#" class="btn btn-primary px-3 button" style="background-color: #dc3545; border:none; border-radius:0px;">Shop Now</a>
             </div>
+            <div class="imgSlide col-lg-6 mt-5" data-aos="zoom-in-up" data-aos-duration="1500">
+              <img src="img/brocoli-bgremove.png" class="d-block w-75" alt="..." style="filter:drop-shadow(2px 4px 6px #7b7b7b);">
             </div>
+          </div>
+        </div>
 
-            <div class="carousel-item " style="background: rgb(214,250,126);
-background: linear-gradient(88deg, rgb(243 223 68) 0%, rgb(255 254 192) 35%, rgba(252, 252, 252, 1) 100%) ">
-              <div class="row px-3 overflow-hidden flex-nowrap">
-              <div class="col-lg-6 text w-40"  data-aos="zoom-in-left"
+        <!-- Second Slide -->
+
+        <div class="carousel-item " style="background: rgb(214,250,126);background: linear-gradient(88deg, rgb(243 223 68) 0%, rgb(255 254 192) 35%, rgba(252, 252, 252, 1) 100%) ">
+          <div class="row px-3 overflow-hidden flex-nowrap">
+            <div class="col-lg-6 text w-40"  data-aos="zoom-in-left"
+              data-aos-offset="300"
+              data-aos-easing="ease-in-sine"  data-aos-duration="500">
+              <h1 style="color: rgb(27, 27, 27); text-transform:uppercase;">Shop till You Drop</h1>
+              <div class="line" style="width: 450px; height:3px; margin:3px; background-color:#dc3545"></div>
+                <div class="line-black" style="width: 400px; height:3px; margin:3px; background-color:#2b2a2a"></div>
+              <p style="color: #4a4849; font-size:1.3rem; margin-top:1.3rem;">Don't wait! Just Go for it</p>
+              <br><br>
+              <a href="#" class="btn btn-primary px-3" style="background-color: #dc3545; border:none; border-radius:0px;">Shop Now</a>
+            </div>
+            <div class="imgSlide col-lg-6 " data-aos="zoom-in-up"  data-aos-duration="500">
+              <img src="img/banana.png" class="d-block w-75 mt-5" alt="..." style="filter:drop-shadow(2px 4px 6px #7b7b7b);">
+            </div>
+          </div>
+        </div>
+
+        <!-- Third Slide -->
+
+        <div class="carousel-item " style="background: rgb(214,250,126);background: linear-gradient(88deg, rgb(255 211 157) 0%, rgb(255 245 215) 35%, rgba(252, 252, 252, 1) 100%); ">
+          <div class="row px-3 overflow-hidden flex-nowrap">
+            <div class="col-lg-6 text w-40"  data-aos="fade-right"
               data-aos-offset="300"
               data-aos-easing="ease-in-sine"  data-aos-duration="500">
                 <h1 style="color: rgb(27, 27, 27); text-transform:uppercase;">Shop till You Drop</h1>
                 <div class="line" style="width: 450px; height:3px; margin:3px; background-color:#dc3545"></div>
                   <div class="line-black" style="width: 400px; height:3px; margin:3px; background-color:#2b2a2a"></div>
                 <p style="color: #4a4849; font-size:1.3rem; margin-top:1.3rem;">Don't wait! Just Go for it</p>
+                <br><br>
                 <a href="#" class="btn btn-primary px-3" style="background-color: #dc3545; border:none; border-radius:0px;">Shop Now</a>
-              </div>
-              <div class="imgSlide col-lg-6 " data-aos="zoom-in-up"  data-aos-duration="500">
-                <img src="img/banana.png" class="d-block w-75 mt-5" alt="..." style="filter:drop-shadow(2px 4px 6px #7b7b7b);">
-              </div>
             </div>
+            <div class="imgSlide col-lg-6 " data-aos="zoom-in-up" data-aos-duration="500">
+              <img src="img/rice.png" class="d-block w-75 mt-5" alt="..." style="filter:drop-shadow(2px 4px 6px #7b7b7b);">
             </div>
-             
-            <div class="carousel-item " style="background: rgb(214,250,126);
-            background: linear-gradient(88deg, rgb(255 211 157) 0%, rgb(255 245 215) 35%, rgba(252, 252, 252, 1) 100%); ">
-                          <div class="row px-3 overflow-hidden flex-nowrap">
-                          <div class="col-lg-6 text w-40"  data-aos="fade-right"
-                          data-aos-offset="300"
-                          data-aos-easing="ease-in-sine"  data-aos-duration="500">
-                            <h1 style="color: rgb(27, 27, 27); text-transform:uppercase;">Shop till You Drop</h1>
-                            <div class="line" style="width: 450px; height:3px; margin:3px; background-color:#dc3545"></div>
-                              <div class="line-black" style="width: 400px; height:3px; margin:3px; background-color:#2b2a2a"></div>
-                            <p style="color: #4a4849; font-size:1.3rem; margin-top:1.3rem;">Don't wait! Just Go for it</p>
-                            <a href="#" class="btn btn-primary px-3" style="background-color: #dc3545; border:none; border-radius:0px;">Shop Now</a>
-                          </div>
-                          <div class="imgSlide col-lg-6 " data-aos="zoom-in-up" data-aos-duration="500">
-                            <img src="img/rice.png" class="d-block w-75 mt-5" alt="..." style="filter:drop-shadow(2px 4px 6px #7b7b7b);">
-                          </div>
-                        </div>
-                        </div>
-
-                        <div class="carousel-item " style="background: rgb(214,250,126);
-                        background: linear-gradient(88deg, rgb(225 255 150) 0%, rgb(248 255 215) 35%, rgba(252, 252, 252, 1) 100%); ">
-                                      <div class="row px-3 overflow-hidden flex-nowrap">
-                                      <div class="col-lg-6 text w-40"  data-aos="fade-right"
-                                      data-aos-offset="300"
-                                      data-aos-easing="ease-in-sine"  data-aos-duration="500">
-                                        <h1 style="color: rgb(27, 27, 27); text-transform:uppercase;">Shop till You Drop</h1>
-                                        <div class="line" style="width: 450px; height:3px; margin:3px; background-color:#dc3545"></div>
-                                          <div class="line-black" style="width: 400px; height:3px; margin:3px; background-color:#2b2a2a"></div>
-                                        <p style="color: #4a4849; font-size:1.3rem; margin-top:1.3rem;">Don't wait! Just Go for it</p>
-                                        <a href="#" class="btn btn-primary px-3" style="background-color: #dc3545; border:none; border-radius:0px;">Shop Now</a>
-                                      </div>
-                                      <div class="imgSlide col-lg-6 " data-aos="zoom-in-up" data-aos-duration="500">
-                                        <img src="img/veggieBasket.png" class="d-block w-75 mt-5" alt="..." style="filter:drop-shadow(2px 4px 6px #7b7b7b);">
-                                      </div>
-                                    </div>
-                                    </div>
-
-
-                                    <div class="carousel-item " style="background: rgb(214,250,126);
-                                    background: linear-gradient(88deg, rgb(255 129 129) 0%, rgb(251 210 210) 35%, rgba(252, 252, 252, 1) 100%); ">
-                                                  <div class="row px-3 overflow-hidden flex-nowrap">
-                                                  <div class="col-lg-6 text w-40"  data-aos="fade-right"
-                                                  data-aos-offset="300"
-                                                  data-aos-easing="ease-in-sine"  data-aos-duration="500">
-                                                    <h1 style="color: rgb(27, 27, 27); text-transform:uppercase;">Shop till You Drop</h1>
-                                                    <div class="line" style="width: 450px; height:3px; margin:3px; background-color:#dc3545"></div>
-                                                      <div class="line-black" style="width: 400px; height:3px; margin:3px; background-color:#2b2a2a"></div>
-                                                    <p style="color: #4a4849; font-size:1.3rem; margin-top:1.3rem;">Don't wait! Just Go for it</p>
-                                                    <a href="#" class="btn btn-primary px-3" style="background-color: #dc3545; border:none; border-radius:0px;">Shop Now</a>
-                                                  </div>
-                                                  <div class="imgSlide col-lg-6 " data-aos="zoom-in-up" data-aos-duration="500">
-                                                    <img src="img/watermellon.png" class="d-block w-75 mt-5" alt="..." style="filter:drop-shadow(2px 4px 6px #7b7b7b);">
-                                                  </div>
-                                                </div>
-                                                </div>
-                                                <div class="carousel-item " style="background: rgb(214,250,126);
-                                                background: linear-gradient(88deg, rgb(225 255 150) 0%, rgb(248 255 215) 35%, rgba(252, 252, 252, 1) 100%); ">
-                                                              <div class="row px-3 overflow-hidden flex-nowrap">
-                                                              <div class="col-lg-6 text w-40"  data-aos="fade-right"
-                                                              data-aos-offset="300"
-                                                              data-aos-easing="ease-in-sine"  data-aos-duration="500">
-                                                                <h1 style="color: rgb(27, 27, 27); text-transform:uppercase;">Shop till You Drop</h1>
-                                                                <div class="line" style="width: 450px; height:3px; margin:3px; background-color:#dc3545"></div>
-                                                                  <div class="line-black" style="width: 400px; height:3px; margin:3px; background-color:#2b2a2a"></div>
-                                                                <p style="color: #4a4849; font-size:1.3rem; margin-top:1.3rem;">Don't wait! Just Go for it</p>
-                                                                <a href="#" class="btn btn-primary px-3" style="background-color: #dc3545; border:none; border-radius:0px;">Shop Now</a>
-                                                              </div>
-                                                              <div class="imgSlide col-lg-6 " data-aos="zoom-in-up" data-aos-duration="500">
-                                                                <img src="img/masala.png" class="d-block w-75 mt-5" alt="..." style="filter:drop-shadow(2px 4px 6px #7b7b7b);">
-                                                              </div>
-                                                            </div>
-                                                            </div>
-
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: #67a617;"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: #67a617;"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
         </div>
+
+        <!-- Fourth Slide -->
+
+        <div class="carousel-item " style="background: rgb(214,250,126); background: linear-gradient(88deg, rgb(225 255 150) 0%, rgb(248 255 215) 35%, rgba(252, 252, 252, 1) 100%); ">
+          <div class="row px-3 overflow-hidden flex-nowrap">
+            <div class="col-lg-6 text w-40"  data-aos="fade-right"
+              data-aos-offset="300"
+              data-aos-easing="ease-in-sine"  data-aos-duration="500">
+              <h1 style="color: rgb(27, 27, 27); text-transform:uppercase;">Shop till You Drop</h1>
+              <div class="line" style="width: 450px; height:3px; margin:3px; background-color:#dc3545"></div>
+                <div class="line-black" style="width: 400px; height:3px; margin:3px; background-color:#2b2a2a"></div>
+              <p style="color: #4a4849; font-size:1.3rem; margin-top:1.3rem;">Don't wait! Just Go for it</p>
+              <br><br>
+              <a href="#" class="btn btn-primary px-3" style="background-color: #dc3545; border:none; border-radius:0px;">Shop Now</a>
+            </div>
+            <div class="imgSlide col-lg-6 " data-aos="zoom-in-up" data-aos-duration="500">
+              <img src="img/veggieBasket.png" class="d-block w-75 mt-5" alt="..." style="filter:drop-shadow(2px 4px 6px #7b7b7b);">
+            </div>
+          </div>
+        </div>
+
+        <!-- Fifth Slide -->
+
+        <div class="carousel-item " style="background: rgb(214,250,126);background: linear-gradient(88deg, rgb(255 129 129) 0%, rgb(251 210 210) 35%, rgba(252, 252, 252, 1) 100%); ">
+          <div class="row px-3 overflow-hidden flex-nowrap">
+            <div class="col-lg-6 text w-40"  data-aos="fade-right"
+              data-aos-offset="300"
+              data-aos-easing="ease-in-sine"  data-aos-duration="500">
+              <h1 style="color: rgb(27, 27, 27); text-transform:uppercase;">Shop till You Drop</h1>
+              <div class="line" style="width: 450px; height:3px; margin:3px; background-color:#dc3545"></div>
+              <div class="line-black" style="width: 400px; height:3px; margin:3px; background-color:#2b2a2a"></div>
+              <p style="color: #4a4849; font-size:1.3rem; margin-top:1.3rem;">Don't wait! Just Go for it</p>
+              <br><br>
+              <a href="#" class="btn btn-primary px-3" style="background-color: #dc3545; border:none; border-radius:0px;">Shop Now</a>
+            </div>
+            <div class="imgSlide col-lg-6 " data-aos="zoom-in-up" data-aos-duration="500">
+              <img src="img/watermellon.png" class="d-block w-75 mt-5" alt="..." style="filter:drop-shadow(2px 4px 6px #7b7b7b);">
+            </div>
+          </div>
+        </div>
+
+        <!-- Sixth Slide -->
+
+        <div class="carousel-item " style="background: rgb(214,250,126); background: linear-gradient(88deg, rgb(225 255 150) 0%, rgb(248 255 215) 35%, rgba(252, 252, 252, 1) 100%); ">
+          <div class="row px-3 overflow-hidden flex-nowrap">
+            <div class="col-lg-6 text w-40"  data-aos="fade-right"
+                data-aos-offset="300"
+                data-aos-easing="ease-in-sine"  data-aos-duration="500">
+                <h1 style="color: rgb(27, 27, 27); text-transform:uppercase;">Shop till You Drop</h1>
+                <div class="line" style="width: 450px; height:3px; margin:3px; background-color:#dc3545"></div>
+                <div class="line-black" style="width: 400px; height:3px; margin:3px; background-color:#2b2a2a"></div>
+                <p style="color: #4a4849; font-size:1.3rem; margin-top:1.3rem;">Don't wait! Just Go for it</p>
+                <br><br>
+                <a href="#" class="btn btn-primary px-3" style="background-color: #dc3545; border:none; border-radius:0px;">Shop Now</a>
+            </div>
+            <div class="imgSlide col-lg-6 " data-aos="zoom-in-up" data-aos-duration="500">
+              <img src="img/masala.png" class="d-block w-75 mt-5" alt="..." style="filter:drop-shadow(2px 4px 6px #7b7b7b);">
+            </div>
+          </div>
+        </div>
+
       </div>
-  </div> 
+      <!-- Shop Now Button -->
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: #67a617;"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: #67a617;"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+</div> 
 
 <!-- Product Sections -->
 <section class="pt-5 pb-5">
@@ -631,5 +651,70 @@ background: linear-gradient(88deg, rgb(243 223 68) 0%, rgb(255 254 192) 35%, rgb
     
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- JS for Type Writter Animation Effect  -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const headingElement = document.getElementById('typewriterHeading');
+          const paragraphElement = document.getElementById('typewriterParagraph');
+          
+          const texts = {
+              heading: {
+                  content: "Shop till You Drop",
+                  speed: 150,
+                  eraseSpeed: 75
+              },
+              paragraph: {
+                  content: "Don't wait! Just Go for it",
+                  speed: 100,
+                  eraseSpeed: 50
+              }
+          };
+      
+          function createTypewriter(element, text, speed, eraseSpeed) {
+              let currentText = '';
+              let isDeleting = false;
+              let index = 0;
+      
+              function animate() {
+                  const fullText = text;
+                  
+                  if (isDeleting) {
+                      // Erase text
+                      currentText = fullText.substring(0, currentText.length - 1);
+                      element.textContent = currentText;
+                      
+                      if (currentText === '') {
+                          isDeleting = false;
+                          index = 0;
+                      }
+                      setTimeout(animate, eraseSpeed);
+                  } else {
+                      // Write text
+                      currentText = fullText.substring(0, index + 1);
+                      element.textContent = currentText;
+                      index++;
+      
+                      if (currentText === fullText) {
+                          isDeleting = true;
+                          setTimeout(animate, 2000); // Pause at full text
+                      } else {
+                          setTimeout(animate, speed);
+                      }
+                  }
+              }
+      
+              // Start animation
+              animate();
+          }
+      
+          // Initialize typewriter effects
+          createTypewriter(headingElement, texts.heading.content, texts.heading.speed, texts.heading.eraseSpeed);
+          setTimeout(() => {
+              createTypewriter(paragraphElement, texts.paragraph.content, texts.paragraph.speed, texts.paragraph.eraseSpeed);
+          }, 1000); // Delay paragraph animation start
+      });
+    </script>
+
 </body>
 </html>
