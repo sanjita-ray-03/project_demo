@@ -6,399 +6,396 @@
     <title>Supermarket Products</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
+        /* Base Styles */
+        .sp-main {
+            font-family: 'Arial', sans-serif;
             padding: 20px;
+            background: #f8f9fa;
         }
 
-        .container {
+        .sp-container {
             display: flex;
-            gap: 20px;
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         /* Filters Section */
-        .filters {
-            width: 250px;
-            padding: 20px;
-            background: #f5f5f5;
-            border-radius: 8px;
+        .sp-filters-section {
+            width: 280px;
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
 
-        .filter-group {
-            margin-bottom: 20px;
+        .sp-filter-group {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
         }
 
-        .filter-group h3 {
-            margin-bottom: 10px;
-            color: #333;
+        .sp-filter-title {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
         }
 
-        .price-range input {
+        /* Category Dropdown */
+        .sp-category-select {
             width: 100%;
+            padding: 10px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: #fff;
+            font-size: 14px;
+            color: #34495e;
+            transition: all 0.3s ease;
         }
 
-        .brand-options label {
-            display: block;
-            margin-bottom: 8px;
+        .sp-category-select:focus {
+            outline: none;
+            border-color: #67a617;
+            box-shadow: 0 0 0 3px rgba(103,166,23,0.1);
         }
 
-        .rating-options label {
+        /* Price Range */
+        .sp-price-range {
+            width: 100%;
+            height: 4px;
+            -webkit-appearance: none;
+            background: #e0e0e0;
+            border-radius: 2px;
+        }
+
+        .sp-price-range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #67a617;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .sp-price-value {
+            color: #67a617;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        /* Checkboxes */
+        .sp-checkbox-container {
             display: block;
-            margin-bottom: 8px;
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+            cursor: pointer;
+        }
+
+        .sp-checkbox-input {
+            position: absolute;
+            opacity: 0;
+            height: 0;
+            width: 0;
+        }
+
+        .sp-checkbox-checkmark {
+            position: absolute;
+            top: 2px;
+            left: 0;
+            height: 18px;
+            width: 18px;
+            background-color: #fff;
+            border: 2px solid #bdc3c7;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .sp-checkbox-container:hover .sp-checkbox-checkmark {
+            border-color: #67a617;
+        }
+
+        .sp-checkbox-input:checked ~ .sp-checkbox-checkmark {
+            background-color: #67a617;
+            border-color: #67a617;
+        }
+
+        .sp-checkbox-checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+            left: 5px;
+            top: 1px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .sp-checkbox-input:checked ~ .sp-checkbox-checkmark:after {
+            display: block;
         }
 
         /* Products Grid */
-        .products {
+        .sp-products-grid {
             flex: 1;
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
         }
 
-        .product-card {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 4px;
-        }
-
-        .product-name {
-            margin: 10px 0;
-            font-size: 1.1em;
-        }
-
-        .product-price {
-            color: #e91e63;
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-
-        .product-rating {
-            color: #ffc107;
-            margin: 8px 0;
-        }
-
-        .add-to-cart {
-            background: #4CAF50;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-            }
-            .filters {
-                width: 100%;
-            }
-        }
-
-        .products {
-            flex: 1;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.5s ease forwards;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .product-card {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: cardEntrance 0.5s ease forwards;
-        }
-
-        @keyframes cardEntrance {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
-        }
-
-        .product-image {
+        .sp-product-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             transition: transform 0.3s ease;
         }
 
-        .product-card:hover .product-image {
-            transform: scale(1.05);
+        .sp-product-card:hover {
+            transform: translateY(-5px);
         }
 
-        .add-to-cart {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
+        .sp-product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 2px solid #f8f9fa;
         }
 
-        .add-to-cart::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: rgba(255,255,255,0.1);
-            transform: rotate(45deg);
-            transition: all 0.5s ease;
+        .sp-product-info {
+            padding: 15px;
         }
 
-        .add-to-cart:hover::after {
-            left: 50%;
-            top: 50%;
+        .sp-product-title {
+            font-size: 1rem;
+            color: #2c3e50;
+            margin-bottom: 8px;
         }
 
-        /* Staggered animations */
-        .product-card:nth-child(1) { animation-delay: 0.1s; }
-        .product-card:nth-child(2) { animation-delay: 0.2s; }
-        .product-card:nth-child(3) { animation-delay: 0.3s; }
-        .product-card:nth-child(4) { animation-delay: 0.4s; }
-        .product-card:nth-child(5) { animation-delay: 0.5s; }
-        .product-card:nth-child(6) { animation-delay: 0.6s; }
-
-        /* Filter transition */
-        .product-card {
-            transition: all 0.3s ease, opacity 0.3s ease;
+        .sp-product-price {
+            color: #67a617;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
         }
 
-        /* Scroll animation */
-        .scroll-in {
-            animation: scrollReveal 0.8s ease forwards;
+        .sp-product-rating {
+            color: #f1c40f;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
         }
 
-        @keyframes scrollReveal {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
+        .sp-add-to-cart {
+            width: 100%;
+            padding: 10px;
+            background: #67a617;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .sp-add-to-cart:hover {
+            background: #569013;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sp-container {
+                flex-direction: column;
             }
-            to {
-                opacity: 1;
-                transform: translateX(0);
+            
+            .sp-filters-section {
+                width: 100%;
             }
         }
     </style>
 </head>
-<body>
-    <div class="container">
+<body class="sp-main">
+    <div class="sp-container">
         <!-- Filters Section -->
-        <div class="filters">
-            <div class="filter-group">
-                <h3>Price Range</h3>
-                <div class="price-range">
-                    <input type="range" id="priceRange" min="0" max="100" value="100">
-                    <div>Max Price: $<span id="priceValue">100</span></div>
-                </div>
+        <section class="sp-filters-section">
+            <!-- Category Filter -->
+            <div class="sp-filter-group">
+                <select class="sp-category-select" id="categoryFilter">
+                    <option value="all">All Categories</option>
+                    <option value="dairy">Dairy</option>
+                    <option value="vegetables">Vegetables</option>
+                    <option value="fruits">Fruits</option>
+                    <option value="bakery">Bakery</option>
+                    <option value="meat">Meat</option>
+                    <option value="frozen">Frozen</option>
+                </select>
             </div>
 
-            <div class="filter-group">
-                <h3>Brand</h3>
-                <div class="brand-options">
-                    <label><input type="checkbox" value="FreshFarm"> FreshFarm</label>
-                    <label><input type="checkbox" value="OrganicChoice"> OrganicChoice</label>
-                    <label><input type="checkbox" value="DailyGood"> DailyGood</label>
-                </div>
+            <!-- Price Filter -->
+            <div class="sp-filter-group">
+                <h3 class="sp-filter-title">Price Range</h3>
+                <input type="range" class="sp-price-range" id="priceFilter" min="0" max="100" value="100">
+                <div class="sp-price-value">Max: $<span id="priceValue">100</span></div>
             </div>
 
-            <div class="filter-group">
-                <h3>Rating</h3>
-                <div class="rating-options">
-                    <label><input type="checkbox" value="4"> ★★★★☆ & Up</label>
-                    <label><input type="checkbox" value="3"> ★★★☆☆ & Up</label>
-                    <label><input type="checkbox" value="2"> ★★☆☆☆ & Up</label>
-                </div>
+            <!-- Brand Filter -->
+            <div class="sp-filter-group">
+                <h3 class="sp-filter-title">Brand</h3>
+                <label class="sp-checkbox-container">
+                    <input type="checkbox" class="sp-checkbox-input" value="FreshFarm">
+                    <span class="sp-checkbox-checkmark"></span>
+                    FreshFarm
+                </label>
+                <label class="sp-checkbox-container">
+                    <input type="checkbox" class="sp-checkbox-input" value="OrganicChoice">
+                    <span class="sp-checkbox-checkmark"></span>
+                    OrganicChoice
+                </label>
+                <label class="sp-checkbox-container">
+                    <input type="checkbox" class="sp-checkbox-input" value="DailyGood">
+                    <span class="sp-checkbox-checkmark"></span>
+                    DailyGood
+                </label>
             </div>
-        </div>
+
+            <!-- Rating Filter -->
+            <div class="sp-filter-group">
+                <h3 class="sp-filter-title">Rating</h3>
+                <label class="sp-checkbox-container">
+                    <input type="checkbox" class="sp-checkbox-input" value="4">
+                    <span class="sp-checkbox-checkmark"></span>
+                    ★★★★☆ & Up
+                </label>
+                <label class="sp-checkbox-container">
+                    <input type="checkbox" class="sp-checkbox-input" value="3">
+                    <span class="sp-checkbox-checkmark"></span>
+                    ★★★☆☆ & Up
+                </label>
+                <label class="sp-checkbox-container">
+                    <input type="checkbox" class="sp-checkbox-input" value="2">
+                    <span class="sp-checkbox-checkmark"></span>
+                    ★★☆☆☆ & Up
+                </label>
+            </div>
+        </section>
 
         <!-- Products Grid -->
-        <!-- ... (keep the previous HTML structure and styles) ... -->
+        <section class="sp-products-grid">
+            <!-- Dairy Products -->
+            <article class="sp-product-card" data-price="25" data-brand="FreshFarm" data-rating="4" data-category="dairy">
+                <img src="https://picsum.photos/id/1080/400/300" alt="Milk" class="sp-product-image">
+                <div class="sp-product-info">
+                    <h3 class="sp-product-title">Fresh Milk</h3>
+                    <div class="sp-product-price">$25</div>
+                    <div class="sp-product-rating">★★★★☆</div>
+                    <button class="sp-add-to-cart">Add to Cart</button>
+                </div>
+            </article>
 
-<div class="products">
-    <!-- Milk Products -->
-    <div class="product-card" data-price="25" data-brand="FreshFarm" data-rating="4">
-        <img src="https://picsum.photos/id/1080/200/200" alt="Milk" class="product-image">
-        <h3 class="product-name">Fresh Milk</h3>
-        <div class="product-price">$25</div>
-        <div class="product-rating">★★★★☆</div>
-        <button class="add-to-cart">Add to Cart</button>
-    </div>
+            <!-- Vegetables -->
+            <article class="sp-product-card" data-price="15" data-brand="OrganicChoice" data-rating="5" data-category="vegetables">
+                <img src="https://picsum.photos/id/292/400/300" alt="Vegetables" class="sp-product-image">
+                <div class="sp-product-info">
+                    <h3 class="sp-product-title">Organic Vegetables</h3>
+                    <div class="sp-product-price">$15</div>
+                    <div class="sp-product-rating">★★★★★</div>
+                    <button class="sp-add-to-cart">Add to Cart</button>
+                </div>
+            </article>
 
-    <!-- Vegetables -->
-    <div class="product-card" data-price="15" data-brand="OrganicChoice" data-rating="5">
-        <img src="https://picsum.photos/id/292/200/200" alt="Vegetables" class="product-image">
-        <h3 class="product-name">Fresh Vegetables</h3>
-        <div class="product-price">$15</div>
-        <div class="product-rating">★★★★★</div>
-        <button class="add-to-cart">Add to Cart</button>
-    </div>
+            <!-- Fruits -->
+            <article class="sp-product-card" data-price="20" data-brand="DailyGood" data-rating="4" data-category="fruits">
+                <img src="https://picsum.photos/id/102/400/300" alt="Fruits" class="sp-product-image">
+                <div class="sp-product-info">
+                    <h3 class="sp-product-title">Seasonal Fruits</h3>
+                    <div class="sp-product-price">$20</div>
+                    <div class="sp-product-rating">★★★★☆</div>
+                    <button class="sp-add-to-cart">Add to Cart</button>
+                </div>
+            </article>
 
-    <!-- Fruits -->
-    <div class="product-card" data-price="20" data-brand="DailyGood" data-rating="4">
-        <img src="https://picsum.photos/id/102/200/200" alt="Fruits" class="product-image">
-        <h3 class="product-name">Seasonal Fruits</h3>
-        <div class="product-price">$20</div>
-        <div class="product-rating">★★★★☆</div>
-        <button class="add-to-cart">Add to Cart</button>
-    </div>
+            <!-- Bakery -->
+            <article class="sp-product-card" data-price="12" data-brand="FreshFarm" data-rating="4" data-category="bak ery">
+                <img src="https://picsum.photos/id/103/400/300" alt="Bread" class="sp-product-image">
+                <div class="sp-product-info">
+                    <h3 class="sp-product-title">Fresh Bread</h3>
+                    <div class="sp-product-price">$12</div>
+                    <div class="sp-product-rating">★★★★☆</div>
+                    <button class="sp-add-to-cart">Add to Cart</button>
+                </div>
+            </article>
 
-    <!-- Eggs -->
-    <div class="product-card" data-price="18" data-brand="FreshFarm" data-rating="3">
-        <img src="https://picsum.photos/id/141/200/200" alt="Eggs" class="product-image">
-        <h3 class="product-name">Farm Eggs</h3>
-        <div class="product-price">$18</div>
-        <div class="product-rating">★★★☆☆</div>
-        <button class="add-to-cart">Add to Cart</button>
-    </div>
+            <!-- Meat -->
+            <article class="sp-product-card" data-price="30" data-brand="OrganicChoice" data-rating="5" data-category="meat">
+                <img src="https://picsum.photos/id/104/400/300" alt="Chicken" class="sp-product-image">
+                <div class="sp-product-info">
+                    <h3 class="sp-product-title">Organic Chicken</h3>
+                    <div class="sp-product-price">$30</div>
+                    <div class="sp-product-rating">★★★★★</div>
+                    <button class="sp-add-to-cart">Add to Cart</button>
+                </div>
+            </article>
 
-    <!-- Cheese -->
-    <div class="product-card" data-price="30" data-brand="OrganicChoice" data-rating="4">
-        <img src="https://picsum.photos/id/166/200/200" alt="Cheese" class="product-image">
-        <h3 class="product-name">Organic Cheese</h3>
-        <div class="product-price">$30</div>
-        <div class="product-rating">★★★★☆</div>
-        <button class="add-to-cart">Add to Cart</button>
-    </div>
-
-    <!-- Bread -->
-    <div class="product-card" data-price="12" data-brand="DailyGood" data-rating="4">
-        <img src="https://picsum.photos/id/112/200/200" alt="Bread" class="product-image">
-        <h3 class="product-name">Whole Grain Bread</h3>
-        <div class="product-price">$12</div>
-        <div class="product-rating">★★★★☆</div>
-        <button class="add-to-cart">Add to Cart</button>
-    </div>
-</div>
-
-<!-- ... (keep the remaining HTML and JavaScript) ... -->
-
-            <!-- Add more product cards -->
-        </div>
+            <!-- Frozen -->
+            <article class="sp-product-card" data-price="10" data-brand="DailyGood" data-rating="3" data-category="frozen">
+                <img src="img/green-pees.png" alt="Frozen Peas" class="sp-product-image">
+                <div class="sp-product-info">
+                    <h3 class="sp-product-title">Frozen Peas</h3>
+                    <div class="sp-product-price">$10</div>
+                    <div class="sp-product-rating">★★★☆☆</div>
+                    <button class="sp-add-to-cart">Add to Cart</button>
+                </div>
+            </article>
+        </section>
     </div>
 
     <script>
-        // Price Range Filter
-        const priceRange = document.getElementById('priceRange');
+        const priceFilter = document.getElementById('priceFilter');
         const priceValue = document.getElementById('priceValue');
+        const categoryFilter = document.getElementById('categoryFilter');
+        const checkboxes = document.querySelectorAll('.sp-checkbox-input');
+        const productCards = document.querySelectorAll('.sp-product-card');
 
-        priceRange.addEventListener('input', () => {
-            priceValue.textContent = priceRange.value;
+        priceFilter.addEventListener('input', function() {
+            priceValue.textContent = priceFilter.value;
             filterProducts();
         });
 
-        // Filter Products Function
-        function filterProducts() {
-            const maxPrice = parseFloat(priceRange.value);
-            const selectedBrands = Array.from(document.querySelectorAll('.brand-options input:checked'))
-                                      .map(checkbox => checkbox.value);
-            const minRating = Math.min(...Array.from(document.querySelectorAll('.rating-options input:checked'))
-                                      .map(checkbox => parseInt(checkbox.value)));
+        categoryFilter.addEventListener('change', filterProducts);
 
-            document.querySelectorAll('.product-card').forEach(product => {
-                const price = parseFloat(product.dataset.price);
-                const brand = product.dataset.brand;
-                const rating = parseInt(product.dataset.rating);
-
-                const priceMatch = price <= maxPrice;
-                const brandMatch = selectedBrands.length === 0 || selectedBrands.includes(brand);
-                const ratingMatch = !minRating || rating >= minRating;
-
-                product.style.display = (priceMatch && brandMatch && ratingMatch) ? 'block' : 'none';
-            });
-        }
-
-        // Add event listeners to all filter inputs
-        document.querySelectorAll('.filters input').forEach(input => {
-            input.addEventListener('change', filterProducts);
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', filterProducts);
         });
 
+        function filterProducts() {
+            const selectedCategory = categoryFilter.value;
+            const maxPrice = parseInt(priceFilter.value);
+            const selectedBrands = Array.from(checkboxes)
+                .filter(checkbox => checkbox.checked)
+                .map(checkbox => checkbox.value);
+            const selectedRatings = Array.from(checkboxes)
+                .filter(checkbox => checkbox.checked)
+                .map(checkbox => parseInt(checkbox.value));
 
-            // Add these animation-related scripts
-            // Scroll animation trigger
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('scroll-in');
-                    }
-                });
-            }, { threshold: 0.1 });
-    
-            document.querySelectorAll('.product-card').forEach((card) => {
-                observer.observe(card);
+            productCards.forEach(card => {
+                const cardPrice = parseInt(card.getAttribute('data-price'));
+                const cardBrand = card.getAttribute('data-brand');
+                const cardRating = parseInt(card.getAttribute('data-rating'));
+                const cardCategory = card.getAttribute('data-category');
+
+                const isPriceValid = cardPrice <= maxPrice;
+                const isBrandValid = selectedBrands.length === 0 || selectedBrands.includes(cardBrand);
+                const isRatingValid = selectedRatings.length === 0 || selectedRatings.includes(cardRating);
+                const isCategoryValid = selectedCategory === 'all' || selectedCategory === cardCategory;
+
+                if (isPriceValid && isBrandValid && isRatingValid && isCategoryValid) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
             });
-    
-            // Hover effect for touch devices
-            document.querySelectorAll('.product-card').forEach(card => {
-                card.addEventListener('touchstart', function() {
-                    this.classList.add('hover-effect');
-                });
-                
-                card.addEventListener('touchend', function() {
-                    this.classList.remove('hover-effect');
-                });
-            });
-    
-            // Modified filter function with animation
-            function filterProducts() {
-                const maxPrice = parseFloat(priceRange.value);
-                const selectedBrands = Array.from(document.querySelectorAll('.brand-options input:checked'))
-                                          .map(checkbox => checkbox.value);
-                const minRating = Math.min(...Array.from(document.querySelectorAll('.rating-options input:checked'))
-                                          .map(checkbox => parseInt(checkbox.value)));
-    
-                document.querySelectorAll('.product-card').forEach(product => {
-                    const price = parseFloat(product.dataset.price);
-                    const brand = product.dataset.brand;
-                    const rating = parseInt(product.dataset.rating);
-    
-                    const priceMatch = price <= maxPrice;
-                    const brandMatch = selectedBrands.length === 0 || selectedBrands.includes(brand);
-                    const ratingMatch = !minRating || rating >= minRating;
-    
-                    if (priceMatch && brandMatch && ratingMatch) {
-                        product.style.opacity = '1';
-                        product.style.transform = 'translateY(0)';
-                        product.style.display = 'block';
-                    } else {
-                        product.style.opacity = '0';
-                        product.style.transform = 'translateY(20px)';
-                        setTimeout(() => {
-                            product.style.display = 'none';
-                        }, 300);
-                    }
-                });
-            }
+        }
     </script>
 </body>
 </html>
