@@ -1,0 +1,175 @@
+ /* Base Styles */
+ .urban-main-container {
+            
+    min-height: 100vh;
+    padding: 40px 0;
+  }
+  
+  .urban-blog-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .urban-review-panel {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+  }
+  
+  /* Blog Posts Grid */
+  .urban-blog-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px; /* Adjust spacing between posts */
+  }
+  
+  /* Responsive Adjustments */
+  @media (min-width: 768px) {
+    .urban-review-panel {
+        margin-right: 30px;
+        margin-bottom: 30px;
+    }
+    
+    .urban-blog-posts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .urban-blog-posts {
+        grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  
+  /* Form Elements */
+  .urban-form-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  .urban-submit-btn {
+    background: #8BC34A;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  /* Review Entries */
+  .urban-reviews-container {
+    margin-top: 30px;
+  }
+  
+  .urban-review-entry {
+    background: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    animation: fadeIn 0.5s ease;
+  }
+  
+  /* Blog Cards */
+  .urban-blog-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds subtle shadow for elegance */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .urban-blog-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid #f0f0f0;
+  }
+  
+  /* Mobile Optimizations */
+  @media (max-width: 767px) {
+    .urban-main-container {
+        padding: 20px 0;
+    }
+  
+    .urban-blog-header h1 {
+        font-size: 1.8rem;
+    }
+  
+    .urban-review-panel {
+        padding: 15px;
+    }
+  
+    .urban-form-input {
+        font-size: 14px;
+    }
+  
+    .urban-submit-btn {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+  
+    .urban-blog-image {
+        height: 150px;
+    }
+  
+    .urban-review-entry h4 {
+        font-size: 1rem;
+    }
+  
+    .urban-review-entry p {
+        font-size: 0.9rem;
+    }
+  }
+  
+  .urban-blog-content {
+    padding: 15px;
+  }
+  
+  .urban-blog-title {
+    font-size: 1.2rem;
+    color: #ff5722;
+    margin-bottom: 10px;
+  }
+  
+  .urban-blog-excerpt {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  @media (max-width: 767px) {
+    .urban-blog-image {
+        height: 150px; /* Smaller images for smaller screens */
+    }
+  
+    .urban-blog-title {
+        font-size: 1rem; /* Adjust title size on smaller screens */
+    }
+  
+    .urban-blog-excerpt {
+        font-size: 0.85rem;
+    }
+  }
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Hover Effects */
+  @media (hover: hover) {
+    .urban-blog-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .urban-submit-btn:hover {
+        opacity: 0.9;
+    }
+  }

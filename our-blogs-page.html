@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Harvest - Blogs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="our-blogs-page.css">
+
+</head>
+<body>
+    <div class="urban-main-container">
+        <div class="container">
+            <div class="urban-blog-header">
+                <h1><b>Our Blogs</b></h1>
+                <p>Discover fresh ideas for sustainable living</p>
+            </div>
+
+            <div class="row">
+                <!-- Review Panel -->
+                <div class="col-lg-4">
+                    <div class="urban-review-panel">
+                        <h3 class="pb-2">Share Your Valuable Thoughts</h3>
+                        <form class="urban-review-form" id="reviewForm">
+                            <input type="text" class="urban-form-input" placeholder="Your Name" required>
+                            <textarea class="urban-form-input" rows="4" placeholder="Your Review" required></textarea>
+                            <button type="submit" class="urban-submit-btn">Post Review</button>
+                        </form>
+                        <div class="urban-reviews-container" id="reviewsContainer">
+                            <!-- Reviews will be added here dynamically -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Posts -->
+                <div class="col-lg-8 row">
+                    <div class="container urban-blog-posts">
+                        <!-- Blog Post 1 -->
+                            <div class="urban-blog-card">
+                                <img src="fresh_produce1.jpg" 
+                                     class="urban-blog-image" 
+                                     alt="Urban Gardening"
+                                     loading="lazy">
+                                <div class="urban-blog-content">
+                                    <a href="blog-content-page.html" style="text-decoration: none;"><h3 class="urban-blog-title">Secrets to Picking the Freshest Produce Every Time</h3></a>
+                                    <p class="urban-blog-excerpt">The only guide you need to select fruits and vegetables, positioning Urban Harvest as a trustworthy source...</p>
+                                    
+                                </div>
+                            </div>
+                        
+                        <!-- Blog Post 2 -->
+                        <div class="urban-blog-card">
+                            <img src="fresh_produce1.jpg" 
+                                 class="urban-blog-image" 
+                                 alt="Composting"
+                                 loading="lazy">
+                            <div class="urban-blog-content">
+                                <a href="blog-content-page.html" style="text-decoration: none;"><h3 class="urban-blog-title">Local Love: Meet the Farmers Behind Our Fresh Produce</h3></a>
+                                <p class="urban-blog-excerpt">Showcasing our suppliers to emphasize thr connection of Urban Harvest to the local community...</p>
+                                
+                            </div>
+                        </div>
+                        
+                        <!-- blog post 3 -->
+                        <div class="urban-blog-card">
+                            <img src="fresh_produce1.jpg" 
+                                 class="urban-blog-image" 
+                                 alt="Composting"
+                                 loading="lazy">
+                            <div class="urban-blog-content">
+                                <a href="blog-content-page.html" style="text-decoration: none;"><h3 class="urban-blog-title">The Perfect Grocery List for a Stress-Free Shopping Trip</h3></a>
+                                <p class="urban-blog-excerpt">Provided downloadable lists based on categories like diets, events, or quick meals...</p>
+                                
+                            </div>
+                        </div>
+                        <!-- blog post 4 -->
+                        <div class="urban-blog-card">
+                            <img src="fresh_produce1.jpg" 
+                                 class="urban-blog-image" 
+                                 alt="Composting"
+                                 loading="lazy">
+                            <div class="urban-blog-content">
+                                <a href="blog-content-page.html" style="text-decoration: none;"><h3 class="urban-blog-title">Behind the Scenes: How We Ensure Quality Every Step of the Way</h3></a>
+                                <p class="urban-blog-excerpt">Building trust by showing our processes for ensuring fresh and safe food...</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('reviewForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = this.querySelector('input').value;
+            const comment = this.querySelector('textarea').value;
+            const date = new Date().toLocaleDateString();
+
+            const reviewHTML = `
+                <div class="urban-review-entry">
+                    <h4>${name}</h4>
+                    <p>${comment}</p>
+                    <small>Posted on ${date}</small>
+                </div>
+            `;
+
+            document.getElementById('reviewsContainer').insertAdjacentHTML('afterbegin', reviewHTML);
+            
+            // Clear form fields
+            this.reset();
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
