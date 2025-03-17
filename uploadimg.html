@@ -194,7 +194,7 @@
         <button type="button" class="btn btn-primary" id="browseBtn">
             Browse Files
         </button>
-        <input type="file" hidden accept="image/*" multiple id="fileInput">
+        <input type="file" hidden multiple accept="image/*" id="fileInput">
     </div>
 
     <div class="thumbnail-grid" id="previewContainer"></div>
@@ -213,13 +213,14 @@
     const browseBtn = document.getElementById('browseBtn');
     const previewContainer = document.getElementById('previewContainer');
     const uploadAllBtn = document.getElementById('uploadAllBtn');
+    let selectedFiles = []; // Track all selected files
 
     // File selection handlers
     browseBtn.addEventListener('click', () => fileInput.click());
     dropZone.addEventListener('click', () => fileInput.click());
 
     // Drag & drop handlers
-    dropZone.addEventListener('dragover', (e) => {
+   dropZone.addEventListener('dragover', (e) => {
         e.preventDefault();
         dropZone.classList.add('dragover');
     });
@@ -234,12 +235,37 @@
         const files = e.dataTransfer.files;
         handleFiles(files);
     });
-
+    
     // File input change handler
     fileInput.addEventListener('change', (e) => {
         handleFiles(e.target.files);
     });
+    
 
+    // Modified handleFiles function
+    function handleFiles(files) {
+        Array.from(files).forEach(file => {
+            if (!file.type.startsWith('image/')) return;
+            
+            // Check for duplicate files
+            const isDuplicate = selectedFiles.some(
+                existingFile => existingFile.name === file.name && 
+                              existingFile.size === file.size && 
+                              existingFile.lastModified === file.lastModified
+            );
+            
+            if (!isDuplicate) {
+                selectedFiles.push(file);
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    createThumbnail(file, e.target.result);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+        uploadAllBtn.style.display = selectedFiles.length ? 'block' : 'none';
+        fileInput.value = ''; // Reset input to allow same file selection
+    }
     // Handle uploaded files
     function handleFiles(files) {
         Array.from(files).forEach(file => {
@@ -266,21 +292,30 @@
         const removeBtn = document.createElement('button');
         removeBtn.className = 'remove-btn';
         removeBtn.innerHTML = '×';
-        removeBtn.onclick = () => card.remove();
+        removeBtn.onclick = () => {
+            // Remove from selectedFiles
+            const index = selectedFiles.indexOf(file);
+            if (index > -1) {
+                selectedFiles.splice(index, 1);
+            }
+            card.remove();
+            uploadAllBtn.style.display = selectedFiles.length ? 'block' : 'none';
+        };
         
         card.appendChild(img);
         card.appendChild(removeBtn);
         previewContainer.appendChild(card);
     }
 
+
     // Upload all images
+    // Modified upload functionality
     uploadAllBtn.addEventListener('click', async () => {
-        const cards = previewContainer.querySelectorAll('.thumbnail-card');
-        if (cards.length === 0) return;
+        if (selectedFiles.length === 0) return;
         
         const formData = new FormData();
-        Array.from(fileInput.files).forEach(file => {
-            formData.append('images', file);
+        selectedFiles.forEach((file, index) => {
+            formData.append(`images`, file, file.name);
         });
 
         try {
@@ -293,7 +328,7 @@
             if (response.ok) {
                 alert('Upload successful!');
                 previewContainer.innerHTML = '';
-                fileInput.value = '';
+                selectedFiles = [];
                 uploadAllBtn.style.display = 'none';
             }
         } catch (error) {
@@ -301,6 +336,7 @@
             alert('Upload failed!');
         }
     });
+
 </script>
 
 </body>

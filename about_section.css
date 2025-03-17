@@ -1,0 +1,204 @@
+ /* Custom CSS with unique class names */
+ .fresh-primary { color: #d8363a; }
+ .fresh-secondary { color: #67a617; }
+ .fresh-bg-primary { background-color: #d8363a; }
+ .fresh-bg-secondary { background-color: #67a617; }
+
+ /* Banner Styles */
+ .fresh-banner {
+     height: 60vh;
+     overflow: hidden;
+     position: relative;
+ }
+
+ .fresh-banner-img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     animation: freshSlide 1s ease-out;
+ }
+
+ /* Comments Carousel */
+ .fresh-testimonials {
+     padding: 4rem 0;
+     background: #f8f9fa;
+ }
+
+ .fresh-comment-card {
+     border: 2px solid #67a617;
+     border-radius: 15px;
+     padding: 2rem;
+     margin: 1rem;
+     animation: freshFadeUp 0.8s ease-out;
+ }
+
+ /* Map Section */
+ .fresh-map-container {
+     height: 400px;
+     border-radius: 15px;
+     overflow: hidden;
+     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+     animation: freshBounceIn 1s ease-out;
+ }
+
+ /* Animations */
+ @keyframes freshSlide {
+     from { transform: translateX(100%); }
+     to { transform: translateX(0); }
+ }
+
+ @keyframes freshFadeUp {
+     from { 
+         opacity: 0;
+         transform: translateY(30px);
+     }
+     to { 
+         opacity: 1;
+         transform: translateY(0);
+     }
+ }
+
+ @keyframes freshBounceIn {
+     0% { transform: scale(0.5); opacity: 0; }
+     60% { transform: scale(1.05); }
+     100% { transform: scale(1); opacity: 1; }
+ }
+
+ .fresh-heading {
+     font-size: 2.5rem;
+     animation: freshFadeUp 0.8s ease-out;
+ }
+
+ @media (max-width: 768px) {
+     .fresh-banner { height: 40vh; }
+     .fresh-heading { font-size: 2rem; }
+ }
+
+
+ /* Add these styles to existing CSS */
+
+     /* Add these new styles */
+     .fresh-comment-card {
+         background: linear-gradient(145deg, #ffffff, #f8f8f8);
+         border: none;
+         border-radius: 20px;
+         padding: 2.5rem;
+         position: relative;
+         overflow: hidden;
+         transition: all 0.3s ease;
+         cursor: pointer;
+     }
+ 
+     .fresh-comment-card::before {
+         content: '';
+         position: absolute;
+         top: -15px;
+         right: -15px;
+         width: 60px;
+         height: 60px;
+         background: #67a617;
+         transform: rotate(45deg);
+         opacity: 0.1;
+         transition: all 0.3s ease;
+     }
+ 
+     .fresh-comment-card::after {
+         content: '“';
+         position: absolute;
+         top: 20px;
+         left: 25px;
+         font-size: 6rem;
+         color: #d8363a;
+         opacity: 0.1;
+         font-family: serif;
+         line-height: 1;
+     }
+ 
+     .fresh-comment-card:hover {
+         transform: translateY(-10px);
+         box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+     }
+ 
+     .fresh-comment-card:hover::before {
+         opacity: 0.2;
+         width: 70px;
+         height: 70px;
+     }
+ 
+     .fresh-rating {
+         background: rgba(216, 54, 58, 0.1);
+         padding: 8px 15px;
+         border-radius: 25px;
+         display: inline-flex;
+         align-items: center;
+         margin-bottom: 1.5rem;
+     }
+ 
+     .fresh-star {
+         color: #d8363a;
+         width: 20px;
+         height: 20px;
+         margin-right: 5px;
+     }
+ 
+     .fresh-comment-text {
+         font-size: 1.1rem;
+         line-height: 1.7;
+         color: #444;
+         margin-bottom: 2rem;
+         position: relative;
+         z-index: 1;
+     }
+ 
+     .fresh-user-details {
+         position: relative;
+         padding-left: 70px;
+         min-height: 50px;
+     }
+ 
+     .fresh-user-details::before {
+         content: '';
+         position: absolute;
+         left: 0;
+         top: 0;
+         width: 50px;
+         height: 50px;
+         background: #67a617;
+         border-radius: 50%;
+         opacity: 0.1;
+     }
+ 
+     .fresh-user-details h5 {
+         position: relative;
+         z-index: 1;
+         margin-bottom: 0.3rem;
+     }
+ 
+     .fresh-date {
+         display: block;
+         font-size: 0.9rem;
+         color: #888;
+         position: relative;
+         z-index: 1;
+     }
+ 
+     @media (max-width: 768px) {
+         .fresh-comment-card {
+             padding: 1.5rem;
+         }
+         
+         .fresh-comment-card::after {
+             font-size: 4rem;
+             top: 15px;
+             left: 15px;
+         }
+         
+         .fresh-user-details {
+             padding-left: 50px;
+         }
+         
+         .fresh-user-details::before {
+             width: 40px;
+             height: 40px;
+         }
+     }
