@@ -21,7 +21,7 @@
         <p class="lead">You need to follow some steps</p>
     </div>
     <div class="row">
-        <div class="col-md-4 order-md-2 mb-4">
+        <!-- <div class="col-md-4 order-md-2 mb-4">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span class="text" style="color: #d8363a;">Your cart</span>
                 <span class="badge badge-secondary badge-pill">3</span>
@@ -68,8 +68,8 @@
                     </div>
                 </div>
             </form>
-        </div>
-        <div class="col-md-8 order-md-1">
+        </div> -->
+        <div class="col-lg-12 col-md-12 order-md-1">
             <h4 class="mb-3" style="color: #d8363a;">Billing address</h4>
             <form class="needs-validation" novalidate="">
                 <div class="row">
@@ -109,23 +109,10 @@
                     <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
                 </div>
                 <div class="row">
-                    <div class="col-md-5 mb-3">
-                        <label for="country">Country <span class="text" style="color: #d8363a;">*</span></label>
-                        <select class="custom-select d-block w-100" id="country" required>
-                            <option value="default">Please Select</option>
-                            <option>United States</option>
-                            <option>India</option>
-                        </select>
-                        <div class="invalid-feedback"> Please select a valid country. </div>
-                    </div>
+                    
                     <div class="col-md-4 mb-3">
-                        <label for="state">State <span class="text" style="color: #d8363a;">*</span></label>
-                        <select class="custom-select d-block w-100" id="state" required>
-                            <option value="default">Please Select</option>
-                            <option>California</option>
-                            <option>West Bengal</option>
-                            <option>Delhi</option>
-                        </select>
+                        <label for="state">PIN Code <span class="text" style="color: #d8363a;">*</span></label>
+                        <input type="tel" class="form-control" id="address2" placeholder="">
                         <div class="invalid-feedback"> Please provide a valid state. </div>
                     </div>
                     
@@ -142,17 +129,23 @@
                 <hr class="mb-4">
                 <h4 class="mb-3" style="color: #d8363a;">Payment</h4>
                 <div class="d-block my-3">
+
                     <div class="custom-control custom-radio">
                         <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="" required>
-                        <label class="custom-control-label" for="credit">Credit card </label>
+                        <label class="custom-control-label" for="credit">Cash on Delivery </label>
+                    </div>
+
+                    <div class="custom-control custom-radio">
+                        <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="" required>
+                        <label class="custom-control-label" for="credit">Credit card or Debit Card </label>
                     </div>
                     <div class="custom-control custom-radio">
                         <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
-                        <label class="custom-control-label" for="debit">Debit card</label>
+                        <label class="custom-control-label" for="debit">Pay Online with UPI apps</label>
                     </div>
                     <div class="custom-control custom-radio">
                         <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
-                        <label class="custom-control-label" for="paypal">PayPal</label>
+                        <label class="custom-control-label" for="paypal">RazorPay</label>
                     </div>
                 </div>
                 <div class="row">
