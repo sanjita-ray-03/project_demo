@@ -499,3 +499,10 @@
   margin: 0;
   line-height: 1.5;
 }
+
+
+/* 
+//const paymentMethods = document.querySelectorAll('input[name="paymentMethod"]');
+    Other.forEach(method => {
+        method.addEventListener('change', toggleCardDetails);
+    }); */

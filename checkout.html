@@ -126,51 +126,59 @@
                     <input type="checkbox" class="custom-control-input" id="save-info">
                     <label class="custom-control-label" for="save-info">Save this information for next time</label>
                 </div>
+
                 <hr class="mb-4">
-                <h4 class="mb-3" style="color: #d8363a;">Payment</h4>
+
+                <!-- Payment Method -->
+                <h4 class="mb-3" style="color: #d8363a;">Payment Methods</h4>
                 <div class="d-block my-3">
 
                     <div class="custom-control custom-radio">
-                        <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="" required>
-                        <label class="custom-control-label" for="credit">Cash on Delivery </label>
+                        <input id="cod" name="paymentMethod" type="radio" class="custom-control-input" checked="" onclick="myfn()" required>
+                        <label class="custom-control-label" id="cod" for="cod">Cash on Delivery </label>
                     </div>
 
                     <div class="custom-control custom-radio">
-                        <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="" required>
-                        <label class="custom-control-label" for="credit">Credit card or Debit Card </label>
+                        <input id="credit" name="paymentMethod"  type="radio" class="custom-control-input other" checked="" required>
+                        <label class="custom-control-label" id="credit" for="credit">Credit card or Debit Card </label>
                     </div>
+
                     <div class="custom-control custom-radio">
-                        <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
-                        <label class="custom-control-label" for="debit">Pay Online with UPI apps</label>
+                        <input id="upi" name="paymentMethod"  type="radio" class="custom-control-input other" required>
+                        <label class="custom-control-label" id="upi" for="upi">Pay Online with UPI apps </label>
                     </div>
+
                     <div class="custom-control custom-radio">
-                        <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
-                        <label class="custom-control-label" for="paypal">RazorPay</label>
+                        <input id="razorpay" name="paymentMethod"  type="radio" class="custom-control-input other" required>
+                        <label class="custom-control-label" id="razorpay" for="razorpay">RazorPay </label>
                     </div>
+
                 </div>
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="cc-name">Name on card</label>
-                        <input type="text" class="form-control" id="cc-name" placeholder="" required>
-                        <small class="text-muted">Full name as displayed on card</small>
-                        <div class="invalid-feedback"> Name on card is required </div>
+                <div id="card-details">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="cc-name">Name on card</label>
+                            <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                            <small class="text-muted">Full name as displayed on card</small>
+                            <div class="invalid-feedback"> Name on card is required </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="cc-number">Credit card number <span class="text" style="color: #d8363a;">*</span></label>
+                            <input type="text" class="form-control" id="cc-number" placeholder="XXXX XXXX XXXX XXXX" required>
+                            <div class="invalid-feedback"> Credit card number is required </div>
+                        </div>
                     </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="cc-number">Credit card number <span class="text" style="color: #d8363a;">*</span></label>
-                        <input type="text" class="form-control" id="cc-number" placeholder="XXXX XXXX XXXX XXXX" required>
-                        <div class="invalid-feedback"> Credit card number is required </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3 mb-3">
-                        <label for="cc-expiration">Expiration <span class="text" style="color: #d8363a;">*</span></label>
-                        <input type="date" class="form-control" id="cc-expiration" placeholder="" required>
-                        <div class="invalid-feedback"> Expiration date required </div>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <label for="cc-cvv">CVV <span class="text" style="color: #d8363a;">*</span></label>
-                        <input type="tel" class="form-control" id="cc-cvv" placeholder="---" required>
-                        <div class="invalid-feedback"> Security code required </div>
+                    <div class="row">
+                        <div class="col-md-3 mb-3">
+                            <label for="cc-expiration">Expiration <span class="text" style="color: #d8363a;">*</span></label>
+                            <input type="date" class="form-control" id="cc-expiration" placeholder="" required>
+                            <div class="invalid-feedback"> Expiration date required </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="cc-cvv">CVV <span class="text" style="color: #d8363a;">*</span></label>
+                            <input type="tel" class="form-control" id="cc-cvv" placeholder="---" required>
+                            <div class="invalid-feedback"> Security code required </div>
+                        </div>
                     </div>
                 </div>
                 <hr class="mb-4">
@@ -181,9 +189,33 @@
     
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script>
+    const cardDetails = document.getElementById('card-details'); 
+
+    const paymentMethods = document.querySelectorAll('input[name="paymentMethod"]');
+    
+        function toggleCardDetails() {
+            const COD = document.getElementById('cod').checked;
+            console.log(COD)
+            if (COD === true) {
+                cardDetails.style.display = 'none'; // Hide card details
+            } 
+            else {
+                cardDetails.style.display = 'block'; //Show card details
+                
+            }
+        }
+        paymentMethods.forEach(method => {
+            method.addEventListener('change', toggleCardDetails);
+        });
+
+        
+        
+   
+</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-  
+    
 </body>
 </html>
